@@ -55,6 +55,7 @@
             // 
             // One
             // 
+            this.One.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.One.Location = new System.Drawing.Point(13, 40);
             this.One.Name = "One";
             this.One.Size = new System.Drawing.Size(47, 41);
@@ -65,6 +66,7 @@
             // 
             // Two
             // 
+            this.Two.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Two.Location = new System.Drawing.Point(66, 40);
             this.Two.Name = "Two";
             this.Two.Size = new System.Drawing.Size(47, 41);
@@ -75,6 +77,7 @@
             // 
             // Three
             // 
+            this.Three.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Three.Location = new System.Drawing.Point(119, 40);
             this.Three.Name = "Three";
             this.Three.Size = new System.Drawing.Size(47, 41);
@@ -85,6 +88,7 @@
             // 
             // Six
             // 
+            this.Six.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Six.Location = new System.Drawing.Point(119, 87);
             this.Six.Name = "Six";
             this.Six.Size = new System.Drawing.Size(47, 41);
@@ -95,6 +99,7 @@
             // 
             // Five
             // 
+            this.Five.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Five.Location = new System.Drawing.Point(66, 87);
             this.Five.Name = "Five";
             this.Five.Size = new System.Drawing.Size(47, 41);
@@ -105,6 +110,7 @@
             // 
             // Four
             // 
+            this.Four.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Four.Location = new System.Drawing.Point(13, 87);
             this.Four.Name = "Four";
             this.Four.Size = new System.Drawing.Size(47, 41);
@@ -115,6 +121,7 @@
             // 
             // Nine
             // 
+            this.Nine.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Nine.Location = new System.Drawing.Point(119, 134);
             this.Nine.Name = "Nine";
             this.Nine.Size = new System.Drawing.Size(47, 41);
@@ -125,6 +132,7 @@
             // 
             // Eight
             // 
+            this.Eight.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Eight.Location = new System.Drawing.Point(66, 134);
             this.Eight.Name = "Eight";
             this.Eight.Size = new System.Drawing.Size(47, 41);
@@ -135,6 +143,7 @@
             // 
             // Seven
             // 
+            this.Seven.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Seven.Location = new System.Drawing.Point(13, 134);
             this.Seven.Name = "Seven";
             this.Seven.Size = new System.Drawing.Size(47, 41);
@@ -145,6 +154,7 @@
             // 
             // Zero
             // 
+            this.Zero.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Zero.Location = new System.Drawing.Point(38, 181);
             this.Zero.Name = "Zero";
             this.Zero.Size = new System.Drawing.Size(47, 41);
@@ -155,6 +165,7 @@
             // 
             // Plus
             // 
+            this.Plus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Plus.Location = new System.Drawing.Point(172, 40);
             this.Plus.Name = "Plus";
             this.Plus.Size = new System.Drawing.Size(47, 41);
@@ -165,6 +176,7 @@
             // 
             // Minus
             // 
+            this.Minus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Minus.Location = new System.Drawing.Point(172, 87);
             this.Minus.Name = "Minus";
             this.Minus.Size = new System.Drawing.Size(47, 41);
@@ -175,6 +187,7 @@
             // 
             // Multiply
             // 
+            this.Multiply.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Multiply.Location = new System.Drawing.Point(172, 134);
             this.Multiply.Name = "Multiply";
             this.Multiply.Size = new System.Drawing.Size(47, 41);
@@ -185,6 +198,7 @@
             // 
             // Divide
             // 
+            this.Divide.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Divide.Location = new System.Drawing.Point(172, 181);
             this.Divide.Name = "Divide";
             this.Divide.Size = new System.Drawing.Size(47, 41);
@@ -195,6 +209,7 @@
             // 
             // Equals
             // 
+            this.Equals.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Equals.Location = new System.Drawing.Point(91, 181);
             this.Equals.Name = "Equals";
             this.Equals.Size = new System.Drawing.Size(47, 41);
