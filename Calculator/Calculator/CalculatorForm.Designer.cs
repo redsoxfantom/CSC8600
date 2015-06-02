@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.InputBox = new System.Windows.Forms.TextBox();
             this.One = new System.Windows.Forms.Button();
             this.Two = new System.Windows.Forms.Button();
             this.Three = new System.Windows.Forms.Button();
@@ -46,17 +46,18 @@
             this.Equals = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // InputBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(13, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(206, 20);
-            this.textBox1.TabIndex = 0;
+            this.InputBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InputBox.Location = new System.Drawing.Point(13, 13);
+            this.InputBox.Name = "InputBox";
+            this.InputBox.Size = new System.Drawing.Size(206, 30);
+            this.InputBox.TabIndex = 0;
             // 
             // One
             // 
             this.One.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.One.Location = new System.Drawing.Point(13, 40);
+            this.One.Location = new System.Drawing.Point(13, 49);
             this.One.Name = "One";
             this.One.Size = new System.Drawing.Size(47, 41);
             this.One.TabIndex = 1;
@@ -67,7 +68,7 @@
             // Two
             // 
             this.Two.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Two.Location = new System.Drawing.Point(66, 40);
+            this.Two.Location = new System.Drawing.Point(66, 49);
             this.Two.Name = "Two";
             this.Two.Size = new System.Drawing.Size(47, 41);
             this.Two.TabIndex = 2;
@@ -78,7 +79,7 @@
             // Three
             // 
             this.Three.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Three.Location = new System.Drawing.Point(119, 40);
+            this.Three.Location = new System.Drawing.Point(119, 49);
             this.Three.Name = "Three";
             this.Three.Size = new System.Drawing.Size(47, 41);
             this.Three.TabIndex = 3;
@@ -89,7 +90,7 @@
             // Six
             // 
             this.Six.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Six.Location = new System.Drawing.Point(119, 87);
+            this.Six.Location = new System.Drawing.Point(119, 96);
             this.Six.Name = "Six";
             this.Six.Size = new System.Drawing.Size(47, 41);
             this.Six.TabIndex = 6;
@@ -100,7 +101,7 @@
             // Five
             // 
             this.Five.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Five.Location = new System.Drawing.Point(66, 87);
+            this.Five.Location = new System.Drawing.Point(66, 96);
             this.Five.Name = "Five";
             this.Five.Size = new System.Drawing.Size(47, 41);
             this.Five.TabIndex = 5;
@@ -111,7 +112,7 @@
             // Four
             // 
             this.Four.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Four.Location = new System.Drawing.Point(13, 87);
+            this.Four.Location = new System.Drawing.Point(13, 96);
             this.Four.Name = "Four";
             this.Four.Size = new System.Drawing.Size(47, 41);
             this.Four.TabIndex = 4;
@@ -122,7 +123,7 @@
             // Nine
             // 
             this.Nine.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Nine.Location = new System.Drawing.Point(119, 134);
+            this.Nine.Location = new System.Drawing.Point(119, 143);
             this.Nine.Name = "Nine";
             this.Nine.Size = new System.Drawing.Size(47, 41);
             this.Nine.TabIndex = 9;
@@ -133,7 +134,7 @@
             // Eight
             // 
             this.Eight.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Eight.Location = new System.Drawing.Point(66, 134);
+            this.Eight.Location = new System.Drawing.Point(66, 143);
             this.Eight.Name = "Eight";
             this.Eight.Size = new System.Drawing.Size(47, 41);
             this.Eight.TabIndex = 8;
@@ -144,7 +145,7 @@
             // Seven
             // 
             this.Seven.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Seven.Location = new System.Drawing.Point(13, 134);
+            this.Seven.Location = new System.Drawing.Point(13, 143);
             this.Seven.Name = "Seven";
             this.Seven.Size = new System.Drawing.Size(47, 41);
             this.Seven.TabIndex = 7;
@@ -155,7 +156,7 @@
             // Zero
             // 
             this.Zero.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Zero.Location = new System.Drawing.Point(38, 181);
+            this.Zero.Location = new System.Drawing.Point(38, 190);
             this.Zero.Name = "Zero";
             this.Zero.Size = new System.Drawing.Size(47, 41);
             this.Zero.TabIndex = 10;
@@ -166,7 +167,7 @@
             // Plus
             // 
             this.Plus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Plus.Location = new System.Drawing.Point(172, 40);
+            this.Plus.Location = new System.Drawing.Point(172, 49);
             this.Plus.Name = "Plus";
             this.Plus.Size = new System.Drawing.Size(47, 41);
             this.Plus.TabIndex = 11;
@@ -177,7 +178,7 @@
             // Minus
             // 
             this.Minus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Minus.Location = new System.Drawing.Point(172, 87);
+            this.Minus.Location = new System.Drawing.Point(172, 96);
             this.Minus.Name = "Minus";
             this.Minus.Size = new System.Drawing.Size(47, 41);
             this.Minus.TabIndex = 12;
@@ -188,7 +189,7 @@
             // Multiply
             // 
             this.Multiply.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Multiply.Location = new System.Drawing.Point(172, 134);
+            this.Multiply.Location = new System.Drawing.Point(172, 143);
             this.Multiply.Name = "Multiply";
             this.Multiply.Size = new System.Drawing.Size(47, 41);
             this.Multiply.TabIndex = 13;
@@ -199,7 +200,7 @@
             // Divide
             // 
             this.Divide.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Divide.Location = new System.Drawing.Point(172, 181);
+            this.Divide.Location = new System.Drawing.Point(172, 190);
             this.Divide.Name = "Divide";
             this.Divide.Size = new System.Drawing.Size(47, 41);
             this.Divide.TabIndex = 14;
@@ -210,7 +211,7 @@
             // Equals
             // 
             this.Equals.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Equals.Location = new System.Drawing.Point(91, 181);
+            this.Equals.Location = new System.Drawing.Point(91, 190);
             this.Equals.Name = "Equals";
             this.Equals.Size = new System.Drawing.Size(47, 41);
             this.Equals.TabIndex = 15;
@@ -222,7 +223,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(234, 233);
+            this.ClientSize = new System.Drawing.Size(234, 244);
             this.Controls.Add(this.Equals);
             this.Controls.Add(this.Divide);
             this.Controls.Add(this.Multiply);
@@ -238,7 +239,7 @@
             this.Controls.Add(this.Three);
             this.Controls.Add(this.Two);
             this.Controls.Add(this.One);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.InputBox);
             this.Name = "CalculatorForm";
             this.Text = "CSC 8600 Calculator";
             this.ResumeLayout(false);
@@ -248,7 +249,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox InputBox;
         private System.Windows.Forms.Button One;
         private System.Windows.Forms.Button Two;
         private System.Windows.Forms.Button Three;
