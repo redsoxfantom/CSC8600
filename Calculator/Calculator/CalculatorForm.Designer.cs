@@ -51,7 +51,7 @@
             this.AnswerField.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AnswerField.Location = new System.Drawing.Point(13, 13);
             this.AnswerField.Name = "AnswerField";
-            this.AnswerField.Size = new System.Drawing.Size(206, 30);
+            this.AnswerField.Size = new System.Drawing.Size(259, 30);
             this.AnswerField.TabIndex = 0;
             // 
             // OneBtn
@@ -156,7 +156,7 @@
             // ZeroBtn
             // 
             this.ZeroBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ZeroBtn.Location = new System.Drawing.Point(38, 190);
+            this.ZeroBtn.Location = new System.Drawing.Point(66, 190);
             this.ZeroBtn.Name = "ZeroBtn";
             this.ZeroBtn.Size = new System.Drawing.Size(47, 41);
             this.ZeroBtn.TabIndex = 10;
@@ -211,9 +211,9 @@
             // EqualsBtn
             // 
             this.EqualsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EqualsBtn.Location = new System.Drawing.Point(91, 190);
+            this.EqualsBtn.Location = new System.Drawing.Point(225, 49);
             this.EqualsBtn.Name = "EqualsBtn";
-            this.EqualsBtn.Size = new System.Drawing.Size(47, 41);
+            this.EqualsBtn.Size = new System.Drawing.Size(47, 182);
             this.EqualsBtn.TabIndex = 15;
             this.EqualsBtn.Tag = "=";
             this.EqualsBtn.Text = "=";
@@ -223,7 +223,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(234, 244);
+            this.ClientSize = new System.Drawing.Size(285, 238);
             this.Controls.Add(this.EqualsBtn);
             this.Controls.Add(this.DivideBtn);
             this.Controls.Add(this.MultiplyBtn);
