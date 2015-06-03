@@ -92,5 +92,17 @@ namespace CalcutorTest.MathOperators
 
             Assert.AreEqual(expected, actual);
         }
+
+        /// <summary>
+        /// Test the commutative property of this operation
+        /// </summary>
+        [TestMethod]
+        public void AdditionPerformOperationCommutative()
+        {
+            double num1 = target.PerformOperation(3.0, 7.5);
+            double num2 = target.PerformOperation(7.5, 3.0);
+
+            Assert.AreEqual(num1, num2);
+        }
     }
 }
