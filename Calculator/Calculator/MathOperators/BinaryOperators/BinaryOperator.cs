@@ -25,7 +25,7 @@ namespace Calculator.MathOperators.BinaryOperators
             }
 
             double operand1 = operands[0];
-            double operand2 = operands[2];
+            double operand2 = operands[1];
 
             return PerformOperation(operand1, operand2);
         }
