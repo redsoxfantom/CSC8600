@@ -9,25 +9,19 @@ namespace Calculator.MathOperators.BinaryOperators
     /// <summary>
     /// Binary operator that adds two operands together
     /// </summary>
-    public class AdditionOperator : INaryOperator
+    public class AdditionOperator : BinaryOperator
     {
         /// <summary>
-        /// Adds two numbers together
+        /// Add two numbers together, return the result
         /// </summary>
-        /// <param name="operands">A list of operands. Must equal 2</param>
-        /// <returns>The two operands added together</returns>
-        public double PerformOperation(params double[] operands)
+        /// <param name="operand1">The first number</param>
+        /// <param name="operand2">The second numbers</param>
+        /// <returns>The two numbers added together</returns>
+        protected override double PerformOperation(double operand1, double operand2)
         {
-            throw new NotImplementedException();
-        }
+            double result = operand1 + operand2;
 
-        /// <summary>
-        /// This operator requires two operands
-        /// </summary>
-        /// <returns>2</returns>
-        public int NumOperandsExpected()
-        {
-            return 2;
+            return result;
         }
     }
 }
