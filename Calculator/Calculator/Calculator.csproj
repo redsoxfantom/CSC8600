@@ -47,6 +47,7 @@
     <Compile Include="MathOperators\BinaryOperators\AdditionOperator.cs" />
     <Compile Include="MathOperators\BinaryOperators\BinaryOperator.cs" />
     <Compile Include="MathOperators\BinaryOperators\DivisionOperator.cs" />
+    <Compile Include="MathOperators\BinaryOperators\MultiplicationOperator.cs" />
     <Compile Include="MathOperators\BinaryOperators\SubtractionOperator.cs" />
     <Compile Include="MathOperators\INaryOperator.cs" />
     <Compile Include="CalculatorForm.cs">
