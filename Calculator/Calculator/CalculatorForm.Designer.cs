@@ -64,6 +64,7 @@
             this.OneBtn.Tag = "1";
             this.OneBtn.Text = "1";
             this.OneBtn.UseVisualStyleBackColor = true;
+            this.OneBtn.Click += new System.EventHandler(this.numberBtnClick);
             // 
             // TwoBtn
             // 
@@ -75,6 +76,7 @@
             this.TwoBtn.Tag = "2";
             this.TwoBtn.Text = "2";
             this.TwoBtn.UseVisualStyleBackColor = true;
+            this.TwoBtn.Click += new System.EventHandler(this.numberBtnClick);
             // 
             // ThreeBtn
             // 
@@ -86,6 +88,7 @@
             this.ThreeBtn.Tag = "3";
             this.ThreeBtn.Text = "3";
             this.ThreeBtn.UseVisualStyleBackColor = true;
+            this.ThreeBtn.Click += new System.EventHandler(this.numberBtnClick);
             // 
             // SixBtn
             // 
@@ -97,6 +100,7 @@
             this.SixBtn.Tag = "6";
             this.SixBtn.Text = "6";
             this.SixBtn.UseVisualStyleBackColor = true;
+            this.SixBtn.Click += new System.EventHandler(this.numberBtnClick);
             // 
             // FiveBtn
             // 
@@ -108,6 +112,7 @@
             this.FiveBtn.Tag = "5";
             this.FiveBtn.Text = "5";
             this.FiveBtn.UseVisualStyleBackColor = true;
+            this.FiveBtn.Click += new System.EventHandler(this.numberBtnClick);
             // 
             // FourBtn
             // 
@@ -119,6 +124,7 @@
             this.FourBtn.Tag = "4";
             this.FourBtn.Text = "4";
             this.FourBtn.UseVisualStyleBackColor = true;
+            this.FourBtn.Click += new System.EventHandler(this.numberBtnClick);
             // 
             // NineBtn
             // 
@@ -130,6 +136,7 @@
             this.NineBtn.Tag = "9";
             this.NineBtn.Text = "9";
             this.NineBtn.UseVisualStyleBackColor = true;
+            this.NineBtn.Click += new System.EventHandler(this.numberBtnClick);
             // 
             // EightBtn
             // 
@@ -141,6 +148,7 @@
             this.EightBtn.Tag = "8";
             this.EightBtn.Text = "8";
             this.EightBtn.UseVisualStyleBackColor = true;
+            this.EightBtn.Click += new System.EventHandler(this.numberBtnClick);
             // 
             // SevenBtn
             // 
@@ -152,6 +160,7 @@
             this.SevenBtn.Tag = "7";
             this.SevenBtn.Text = "7";
             this.SevenBtn.UseVisualStyleBackColor = true;
+            this.SevenBtn.Click += new System.EventHandler(this.numberBtnClick);
             // 
             // ZeroBtn
             // 
@@ -163,6 +172,7 @@
             this.ZeroBtn.Tag = "0";
             this.ZeroBtn.Text = "0";
             this.ZeroBtn.UseVisualStyleBackColor = true;
+            this.ZeroBtn.Click += new System.EventHandler(this.numberBtnClick);
             // 
             // PlusBtn
             // 

@@ -16,5 +16,16 @@ namespace Calculator
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Fired when any number button (0 - 9) is clicked
+        /// </summary>
+        /// <param name="sender">The button that was pressed</param>
+        /// <param name="e">unused</param>
+        private void numberBtnClick(object sender, EventArgs e)
+        {
+            string buttonText = (string)((Button)sender).Tag;
+            int buttonVal = int.Parse(buttonText);
+        }
     }
 }
