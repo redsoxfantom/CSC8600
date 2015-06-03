@@ -17,5 +17,11 @@ namespace Calculator.MathOperators
         /// <param name="operands">A list of operands</param>
         /// <returns>The result of the operation</returns>
         double PerformOperation(params double[] operands);
+
+        /// <summary>
+        /// Get the number of operands this operator requires
+        /// </summary>
+        /// <returns>The number of operands expected</returns>
+        int NumOperandsExpected();
     }
 }
