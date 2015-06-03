@@ -56,5 +56,41 @@ namespace CalcutorTest.MathOperators
 
             Assert.AreEqual(expected, actual);
         }
+
+        /// <summary>
+        /// Test the perform operation method when given two whole numbers
+        /// </summary>
+        [TestMethod]
+        public void AdditionPerformOperationWholeNumbers()
+        {
+            double expected = 5.0;
+            double actual = target.PerformOperation(2.0, 3.0);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        /// Test the perform operation method when given fractional numbers
+        /// </summary>
+        [TestMethod]
+        public void AdditionPerformOperationFractions()
+        {
+            double expected = 1.5;
+            double actual = target.PerformOperation(0.8, 0.7);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        /// Test the perform operation method when given a mix of fractional and whole numbers
+        /// </summary>
+        [TestMethod]
+        public void AdditionPerformOperationMixed()
+        {
+            double expected = 1.3;
+            double actual = target.PerformOperation(1.0, 0.3);
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
