@@ -26,12 +26,35 @@ namespace CalcutorTest.MathOperators
         }
 
         /// <summary>
-        /// Test the PerformOperation method when given the wrong number of operators
+        /// Test the PerformOperation method when given less than two operators
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(MathOperatorException))]
-        public void TestMethod1()
+        public void AdditionPerformOperationLessThanTwoOperators()
         {
+            target.PerformOperation(1.0);
+        }
+
+        /// <summary>
+        /// Test the PerformOperation method when given more than two operators
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(MathOperatorException))]
+        public void AdditionPerformOperationMoreThanTwoOperators()
+        {
+            target.PerformOperation(1.0,2.0,3.0);
+        }
+
+        /// <summary>
+        /// Test the NumOperandsExpected() method
+        /// </summary>
+        [TestMethod]
+        public void AdditionGetNumOperands()
+        {
+            int expected = 2;
+            int actual = target.NumOperandsExpected();
+
+            Assert.AreEqual(expected, actual);
         }
     }
 }
