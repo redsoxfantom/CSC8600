@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Calculator.BinaryOperators
+namespace Calculator.MathOperators
 {
     /// <summary>
     /// Interface for all operators that take many operands
@@ -16,6 +16,6 @@ namespace Calculator.BinaryOperators
         /// </summary>
         /// <param name="operands">A list of operands</param>
         /// <returns>The result of the operation</returns>
-        public double PerformOperation(params double[] operands);
+        double PerformOperation(params double[] operands);
     }
 }
