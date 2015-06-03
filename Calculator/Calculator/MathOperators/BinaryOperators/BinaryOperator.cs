@@ -20,7 +20,8 @@ namespace Calculator.MathOperators.BinaryOperators
         {
             if (operands.Length != 2)
             {
-                throw new MathOperatorException("AdditionOperator must be given exactly two arguments");
+                string className = this.GetType().Name;
+                throw new MathOperatorException(string.Format("{0} must be given exactly two arguments",className));
             }
 
             double operand1 = operands[0];
