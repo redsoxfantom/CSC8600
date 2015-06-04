@@ -1,4 +1,5 @@
 ﻿using Calculator.MathOperators;
+using Calculator.MathOperators.MathOperatorsFactory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,11 +19,25 @@ namespace Calculator.Calculator
         private double mEnteredNumber;
 
         /// <summary>
+        /// The factory that generates math operators
+        /// </summary>
+        private IMathOperatorsFactory opFactory;
+
+        /// <summary>
         /// The constructor
         /// </summary>
         public Calculator()
         {
             mEnteredNumber = 0;
+            opFactory = new MathOperatorsFactory();
+        }
+
+        /// <summary>
+        /// Initialize the Calculator
+        /// </summary>
+        public void Initialize()
+        {
+            opFactory.InitializeOperators();
         }
 
         /// <summary>
@@ -45,7 +60,7 @@ namespace Calculator.Calculator
         /// Called when the user presses an operator key
         /// </summary>
         /// <param name="op">The operator</param>
-        public void AcceptOperator(INaryOperator op)
+        public void AcceptOperator(string op)
         {
 
         }

@@ -22,6 +22,11 @@ namespace Calculator.Calculator
         /// Called when the user presses an operator key
         /// </summary>
         /// <param name="op">The operator</param>
-        void AcceptOperator(INaryOperator op);
+        void AcceptOperator(string op);
+        
+        /// <summary>
+        /// Initialize the Calculator
+        /// </summary>
+        void Initialize();
     }
 }
