@@ -23,6 +23,11 @@ namespace Calculator.Calculator
         /// </summary>
         /// <param name="op">The operator</param>
         void AcceptOperator(string op);
+
+        /// <summary>
+        /// Called when the user pressed the "=" key
+        /// </summary>
+        void AcceptEquals();
         
         /// <summary>
         /// Initialize the Calculator

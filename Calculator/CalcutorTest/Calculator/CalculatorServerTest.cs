@@ -79,7 +79,7 @@ namespace CalcutorTest.Calculator
         {
             target.AcceptNumber("1");
 
-            double actual = (double)po.GetFieldOrProperty("mEnteredNumber");
+            double actual = (double)po.GetFieldOrProperty("mDisplayedNumber");
             double expected = 1;
 
             Assert.AreEqual(expected, actual);
@@ -95,7 +95,7 @@ namespace CalcutorTest.Calculator
             target.AcceptNumber("2");
             target.AcceptNumber("3");
 
-            double actual = (double)po.GetFieldOrProperty("mEnteredNumber");
+            double actual = (double)po.GetFieldOrProperty("mDisplayedNumber");
             double expected = 123;
 
             Assert.AreEqual(expected, actual);
@@ -109,7 +109,7 @@ namespace CalcutorTest.Calculator
         public void CalculatorServerTestNumberBadMax()
         {
             double num = double.MaxValue;
-            po.SetFieldOrProperty("mEnteredNumber", num);
+            po.SetFieldOrProperty("mDisplayedNumber", num);
 
             target.AcceptNumber("1");
         }
@@ -120,7 +120,7 @@ namespace CalcutorTest.Calculator
         [TestMethod]
         public void CalculatorServerTestOperatorGood()
         {
-            po.SetFieldOrProperty("mEnteredNumber",1234);
+            po.SetFieldOrProperty("mDisplayedNumber", 1234);
 
             target.AcceptOperator("Good Op");
 
@@ -130,7 +130,7 @@ namespace CalcutorTest.Calculator
             List<double> previouslyEnteredNumbers = (List<double>)po.GetFieldOrProperty("previouslyEnteredNumbers");
             Assert.AreEqual(1, previouslyEnteredNumbers.Count);
             Assert.AreEqual(1234, previouslyEnteredNumbers[0]);
-            double mEnteredNumber = (double)po.GetFieldOrProperty("mEnteredNumber");
+            double mEnteredNumber = (double)po.GetFieldOrProperty("mDisplayedNumber");
             Assert.AreEqual(0, mEnteredNumber);
         }
 
@@ -143,5 +143,7 @@ namespace CalcutorTest.Calculator
         {
             target.AcceptOperator("Bad Op");
         }
+
+
     }
 }

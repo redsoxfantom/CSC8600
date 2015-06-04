@@ -19,9 +19,9 @@ namespace Calculator.Calculator
         private List<double> previouslyEnteredNumbers;
 
         /// <summary>
-        /// The number the user entered
+        /// The number displayed on the screen
         /// </summary>
-        private double mEnteredNumber;
+        private double mDisplayedNumber;
 
         /// <summary>
         /// The factory that generates math operators
@@ -38,7 +38,7 @@ namespace Calculator.Calculator
         /// </summary>
         public CalculatorServer()
         {
-            mEnteredNumber = 0;
+            mDisplayedNumber = 0;
             previouslyEnteredNumbers = new List<double>();
             opFactory = new MathOperatorsFactory();
         }
@@ -57,12 +57,12 @@ namespace Calculator.Calculator
         /// <param name="number">The number the user entered</param>
         public void AcceptNumber(string number)
         {
-            StringBuilder currentNumberString = new StringBuilder(mEnteredNumber.ToString());
+            StringBuilder currentNumberString = new StringBuilder(mDisplayedNumber.ToString());
             currentNumberString.Append(number);
 
-            if(!Double.TryParse(currentNumberString.ToString(), out mEnteredNumber))
+            if(!Double.TryParse(currentNumberString.ToString(), out mDisplayedNumber))
             {
-                mEnteredNumber = 0;
+                mDisplayedNumber = 0;
                 throw new CalculatorException(string.Format("The entered number {0} is not valid",currentNumberString.ToString()));
             }
         }
@@ -74,8 +74,16 @@ namespace Calculator.Calculator
         public void AcceptOperator(string op)
         {
             currentOperator = opFactory.GetOperator(op);
-            previouslyEnteredNumbers.Add(mEnteredNumber);
-            mEnteredNumber = 0;
+            previouslyEnteredNumbers.Add(mDisplayedNumber);
+            mDisplayedNumber = 0;
+        }
+
+        /// <summary>
+        /// Called when the user presses the Equals key
+        /// </summary>
+        public void AcceptEquals()
+        {
+
         }
     }
 }
