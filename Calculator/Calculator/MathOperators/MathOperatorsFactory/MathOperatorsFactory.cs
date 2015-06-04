@@ -13,7 +13,7 @@ namespace Calculator.MathOperators.MathOperatorsFactory
     /// <summary>
     /// Factory class that returns a math operator given that operator's symbol.
     /// </summary>
-    public class MathOperatorsFactory
+    public class MathOperatorsFactory : IMathOperatorsFactory
     {
         /// <summary>
         /// Stores the list of operators and their symbols

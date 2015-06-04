@@ -61,6 +61,7 @@
       <DependentUpon>CalculatorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MathOperators\MathOperatorException.cs" />
+    <Compile Include="MathOperators\MathOperatorsFactory\IMathOperatorsFactory.cs" />
     <Compile Include="MathOperators\MathOperatorsFactory\MathOperatorsDataContract.cs" />
     <Compile Include="MathOperators\MathOperatorsFactory\MathOperatorsFactory.cs" />
     <Compile Include="Program.cs" />
