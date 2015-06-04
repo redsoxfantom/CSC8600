@@ -59,5 +59,81 @@ namespace CalcutorTest.Calculator
 
             mockFactory.Verify(f => f.InitializeOperators(), Times.Once());
         }
+
+        /// <summary>
+        /// Test the Accept Number when given invalid input
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(CalculatorException))]
+        public void CalculatorServerTestNumberBadChar()
+        {
+            target.AcceptNumber("a");
+        }
+
+        /// <summary>
+        /// Test the Accept Number method when given good input
+        /// </summary>
+        [TestMethod]
+        public void CalculatorServerTestNumberGoodNumber()
+        {
+            target.AcceptNumber("1");
+
+            double actual = (double)po.GetFieldOrProperty("mEnteredNumber");
+            double expected = 1;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        /// Test the Accept Number method when given multiple good input
+        /// </summary>
+        [TestMethod]
+        public void CalculatorServerTestNumberMultipleGood()
+        {
+            target.AcceptNumber("1");
+            target.AcceptNumber("2");
+            target.AcceptNumber("3");
+
+            double actual = (double)po.GetFieldOrProperty("mEnteredNumber");
+            double expected = 123;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        /// Test the Accept Number method when the resulting double would be more than the max possible
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(CalculatorException))]
+        public void CalculatorServerTestNumberBadMax()
+        {
+            double num = double.MaxValue;
+            po.SetFieldOrProperty("mEnteredNumber", num);
+
+            target.AcceptNumber("1");
+        }
+
+        /// <summary>
+        /// Test the AcceptOperator method when given good input
+        /// </summary>
+        [TestMethod]
+        public void CalculatorServerTestOperatorGood()
+        {
+            target.AcceptOperator("Good Op");
+
+            mockFactory.Verify(f => f.GetOperator("Good Op"), Times.Once());
+            INaryOperator actual = (INaryOperator)po.GetFieldOrProperty("currentOperator");
+            Assert.AreEqual(mockOp.Object, actual);
+        }
+
+        /// <summary>
+        /// Test the AcceptOperator method when given bad input
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(MathOperatorException))]
+        public void CalculatorServerTestOperatorBad()
+        {
+            target.AcceptOperator("Bad Op");
+        }
     }
 }
