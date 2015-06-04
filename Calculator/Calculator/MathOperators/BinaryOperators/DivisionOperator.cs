@@ -19,6 +19,11 @@ namespace Calculator.MathOperators.BinaryOperators
         /// <returns>The result</returns>
         protected override double PerformOperation(double operand1, double operand2)
         {
+            if(operand2 == 0.0)
+            {
+                throw new MathOperatorException("Can't divide by zero");
+            }
+
             double result = operand1 / operand2;
 
             return result;
