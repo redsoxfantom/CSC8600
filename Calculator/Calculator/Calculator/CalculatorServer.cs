@@ -11,7 +11,7 @@ namespace Calculator.Calculator
     /// <summary>
     /// Implements the Calculator functionality
     /// </summary>
-    public class Calculator : ICalculator
+    public class CalculatorServer : ICalculator
     {
         /// <summary>
         /// The number the user entered
@@ -31,7 +31,7 @@ namespace Calculator.Calculator
         /// <summary>
         /// The constructor
         /// </summary>
-        public Calculator()
+        public CalculatorServer()
         {
             mEnteredNumber = 0;
             opFactory = new MathOperatorsFactory();

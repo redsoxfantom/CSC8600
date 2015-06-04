@@ -45,7 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calculator\Calculator.cs" />
+    <Compile Include="Calculator\CalculatorServer.cs" />
     <Compile Include="Calculator\CalculatorException.cs" />
     <Compile Include="Calculator\ICalculator.cs" />
     <Compile Include="MathOperators\BinaryOperators\AdditionOperator.cs" />
