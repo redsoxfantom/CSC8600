@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calculator\Calculator.cs" />
+    <Compile Include="Calculator\ICalculator.cs" />
     <Compile Include="MathOperators\BinaryOperators\AdditionOperator.cs" />
     <Compile Include="MathOperators\BinaryOperators\BinaryOperator.cs" />
     <Compile Include="MathOperators\BinaryOperators\DivisionOperator.cs" />

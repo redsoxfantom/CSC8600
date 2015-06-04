@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Calculator
+namespace Calculator.Calculator
 {
     /// <summary>
     /// Implements the Calculator functionality
     /// </summary>
-    public class Calculator
+    public class Calculator : ICalculator
     {
         /// <summary>
         /// The number the user entered
