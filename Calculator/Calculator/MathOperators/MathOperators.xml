@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MathOperators xmlns="http://schemas.datacontract.org/2004/07/Calculator.MathOperators" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <OperatorDefinition>
+    <Symbol>+</Symbol>
+    <Operator>val1</Operator>
+  </OperatorDefinition>
+  <OperatorDefinition>
+    <Symbol>-</Symbol>
+    <Operator>val2</Operator>
+  </OperatorDefinition>
+</MathOperators>

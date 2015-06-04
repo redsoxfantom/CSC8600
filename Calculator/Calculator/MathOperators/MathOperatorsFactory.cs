@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace Calculator.MathOperators
 {
@@ -26,6 +30,7 @@ namespace Calculator.MathOperators
             if(operators == null)
             {
                 //Lazy initialization of operators dictionary
+                InitializeOperators();
             }
 
             if(operators.ContainsKey(symbol))
@@ -43,7 +48,46 @@ namespace Calculator.MathOperators
         /// </summary>
         private static void InitializeOperators()
         {
+            operators = new Dictionary<string,INaryOperator>();
+            XmlDictionaryReader reader = null;
+            
+            try
+            {
+                FileStream sw = new FileStream("MathOperators.xml", FileMode.Open);
+                reader = XmlDictionaryReader.CreateTextReader(sw, new XmlDictionaryReaderQuotas());
+                DataContractSerializer ser = new DataContractSerializer(typeof(MathOperatorsDataContract));
 
+                Dictionary<string, string> deserializedFile = (Dictionary<string, string>)ser.ReadObject(reader);
+                reader.Close();
+
+                foreach (string operatorSymbol in deserializedFile.Keys)
+                {
+                    try
+                    {
+                        string operatorTypeString = deserializedFile[operatorSymbol];
+                        Type operatorType = Type.GetType(operatorTypeString);
+                        INaryOperator op = (INaryOperator)Activator.CreateInstance(operatorType, new object[] { });
+
+                        operators.Add(operatorTypeString, op);
+                    }
+                    catch(Exception ex)
+                    {
+                        //TODO: Come up with a better logging strategy
+                        Console.WriteLine(string.Format("Failed to create operator: {0}", ex.Message));
+                    }
+                }
+            }
+            catch(IOException ex)
+            {
+                throw new MathOperatorException(string.Format("Failed to load operators config file: {0}", ex.Message));
+            }
+            finally
+            {
+                if(reader != null)
+                {
+                    reader.Close();
+                }
+            }
         }
     }
 }
