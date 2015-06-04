@@ -53,6 +53,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Calculator\CalculatorServerTest.cs" />
     <Compile Include="MathOperators\MultiplicationOperatorTest.cs" />
     <Compile Include="MathOperators\DivisionOperatorTest.cs" />
     <Compile Include="MathOperators\SubtractionOperatorTest.cs" />
