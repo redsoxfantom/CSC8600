@@ -68,7 +68,7 @@ namespace Calculator.MathOperators
                         Type operatorType = Type.GetType(operatorTypeString);
                         INaryOperator op = (INaryOperator)Activator.CreateInstance(operatorType, new object[] { });
 
-                        operators.Add(operatorTypeString, op);
+                        operators.Add(operatorSymbol, op);
                     }
                     catch(Exception ex)
                     {
