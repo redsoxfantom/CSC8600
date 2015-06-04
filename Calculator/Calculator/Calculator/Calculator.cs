@@ -36,7 +36,8 @@ namespace Calculator.Calculator
 
             if(!Double.TryParse(currentNumberString.ToString(), out mEnteredNumber))
             {
-
+                mEnteredNumber = 0;
+                throw new CalculatorException(string.Format("The entered number {0} is not valid",currentNumberString.ToString()));
             }
         }
 
