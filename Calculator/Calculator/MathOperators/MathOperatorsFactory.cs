@@ -14,7 +14,7 @@ namespace Calculator.MathOperators
         /// <summary>
         /// Stores the list of operators and their symbols
         /// </summary>
-        private static Dictionary<string, INaryOperator> operators = new Dictionary<string, INaryOperator>();
+        private static Dictionary<string, INaryOperator> operators = null;
 
         /// <summary>
         /// Given an operator's symbol, return an instance of the INaryOperator represented by that symbol
@@ -23,14 +23,27 @@ namespace Calculator.MathOperators
         /// <returns>The N-Ary operator</returns>
         public static INaryOperator GetOperator(string symbol)
         {
+            if(operators == null)
+            {
+                //Lazy initialization of operators dictionary
+            }
+
             if(operators.ContainsKey(symbol))
             {
                 return operators[symbol];
             }
             else
             {
-                throw new MathOperatorException(string.Format("Math symbol {0} not defined", symbol));
+                throw new MathOperatorException(string.Format("Math symbol {0} not supported", symbol));
             }
+        }
+
+        /// <summary>
+        /// Read in the config file defining the list of operators to support
+        /// </summary>
+        private static void InitializeOperators()
+        {
+
         }
     }
 }
