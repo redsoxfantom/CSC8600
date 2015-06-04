@@ -24,6 +24,11 @@ namespace Calculator.Calculator
         private IMathOperatorsFactory opFactory;
 
         /// <summary>
+        /// The operator the user selected
+        /// </summary>
+        private INaryOperator currentOperator;
+
+        /// <summary>
         /// The constructor
         /// </summary>
         public Calculator()
@@ -62,7 +67,7 @@ namespace Calculator.Calculator
         /// <param name="op">The operator</param>
         public void AcceptOperator(string op)
         {
-
+            currentOperator = opFactory.GetOperator(op);
         }
     }
 }
