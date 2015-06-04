@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace Calculator.MathOperators
+namespace Calculator.MathOperators.MathOperatorsFactory
 {
     /// <summary>
     /// Factory class that returns a math operator given that operator's symbol.

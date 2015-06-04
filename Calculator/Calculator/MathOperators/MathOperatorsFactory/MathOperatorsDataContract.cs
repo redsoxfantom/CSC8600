@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
 
-namespace Calculator.MathOperators
+namespace Calculator.MathOperators.MathOperatorsFactory
 {
     /// <summary>
     /// Data contract defining a dictionary of symbols an INaryOperators that will be loaded on initialization of the MathOperatorsFactory

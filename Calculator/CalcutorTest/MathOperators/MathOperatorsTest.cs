@@ -4,6 +4,7 @@ using Calculator.MathOperators;
 using System.Collections.Generic;
 using System.Reflection;
 using Moq;
+using Calculator.MathOperators.MathOperatorsFactory;
 
 namespace CalculatorTest.MathOperators
 {
