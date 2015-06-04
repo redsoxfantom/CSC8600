@@ -24,15 +24,26 @@ namespace CalculatorTest.MathOperators
         private Mock<INaryOperator> opMock;
 
         /// <summary>
+        /// The class under test
+        /// </summary>
+        private MathOperatorsFactory target;
+
+        /// <summary>
+        /// Provides access to target's private methods / fields
+        /// </summary>
+        private PrivateObject po;
+
+        /// <summary>
         /// Initialize the test
         /// </summary>
         [TestInitialize]
         public void Initialize()
         {
+            target = new MathOperatorsFactory();
+            po = new PrivateObject(target);
             opMock = new Mock<INaryOperator>();
             operators = new Dictionary<string, INaryOperator>();
-            FieldInfo operatorsField = typeof(MathOperatorsFactory).GetField("operators", BindingFlags.NonPublic | BindingFlags.Static);
-            operatorsField.SetValue(null, operators);
+            po.SetFieldOrProperty("operators", operators);
         }
 
         /// <summary>
@@ -43,7 +54,7 @@ namespace CalculatorTest.MathOperators
         {
             operators.Add("+", opMock.Object);
 
-            INaryOperator actual = MathOperatorsFactory.GetOperator("+");
+            INaryOperator actual = target.GetOperator("+");
 
             Assert.AreEqual(opMock.Object, actual);
         }
@@ -55,7 +66,7 @@ namespace CalculatorTest.MathOperators
         [ExpectedException(typeof(MathOperatorException))]
         public void OpFactoryGetNonExistantOperator()
         {
-            INaryOperator op = MathOperatorsFactory.GetOperator("BAD_OP");
+            INaryOperator op = target.GetOperator("BAD_OP");
         }
     }
 }

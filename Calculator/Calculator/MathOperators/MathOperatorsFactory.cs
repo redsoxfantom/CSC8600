@@ -18,21 +18,23 @@ namespace Calculator.MathOperators
         /// <summary>
         /// Stores the list of operators and their symbols
         /// </summary>
-        private static Dictionary<string, INaryOperator> operators = null;
+        private Dictionary<string, INaryOperator> operators;
+
+        /// <summary>
+        /// Construct the Factory. Call InitializeOperators to load config
+        /// </summary>
+        public MathOperatorsFactory()
+        {
+            operators = new Dictionary<string, INaryOperator>();
+        }
 
         /// <summary>
         /// Given an operator's symbol, return an instance of the INaryOperator represented by that symbol
         /// </summary>
         /// <param name="symbol">The symbol associated with an operator (ex: + => AdditionOperator)</param>
         /// <returns>The N-Ary operator</returns>
-        public static INaryOperator GetOperator(string symbol)
+        public INaryOperator GetOperator(string symbol)
         {
-            if(operators == null)
-            {
-                //Lazy initialization of operators dictionary
-                InitializeOperators();
-            }
-
             if(operators.ContainsKey(symbol))
             {
                 return operators[symbol];
@@ -46,9 +48,8 @@ namespace Calculator.MathOperators
         /// <summary>
         /// Read in the config file defining the list of operators to support
         /// </summary>
-        private static void InitializeOperators()
+        public void InitializeOperators()
         {
-            operators = new Dictionary<string,INaryOperator>();
             XmlDictionaryReader reader = null;
             
             try
