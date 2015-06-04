@@ -53,7 +53,7 @@ namespace Calculator.MathOperators
             
             try
             {
-                FileStream sw = new FileStream("MathOperators.xml", FileMode.Open);
+                FileStream sw = new FileStream("Config\MathOperators.xml", FileMode.Open);
                 reader = XmlDictionaryReader.CreateTextReader(sw, new XmlDictionaryReaderQuotas());
                 DataContractSerializer ser = new DataContractSerializer(typeof(MathOperatorsDataContract));
 
