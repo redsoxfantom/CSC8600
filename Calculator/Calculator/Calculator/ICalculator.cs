@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Calculator.MathOperators;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +12,16 @@ namespace Calculator.Calculator
     /// </summary>
     public interface ICalculator
     {
+        /// <summary>
+        /// Called when the user presses a number on the calculator GUI
+        /// </summary>
+        /// <param name="number">The number the user entered</param>
+        void AcceptNumber(string number);
+
+        /// <summary>
+        /// Called when the user presses an operator key
+        /// </summary>
+        /// <param name="op">The operator</param>
+        void AcceptOperator(INaryOperator op);
     }
 }
