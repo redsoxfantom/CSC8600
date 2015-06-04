@@ -14,6 +14,11 @@ namespace Calculator.Calculator
     public class CalculatorServer : ICalculator
     {
         /// <summary>
+        /// A list of all numbers the user entered before pressing the equals sign
+        /// </summary>
+        private List<double> previouslyEnteredNumbers;
+
+        /// <summary>
         /// The number the user entered
         /// </summary>
         private double mEnteredNumber;
@@ -34,6 +39,7 @@ namespace Calculator.Calculator
         public CalculatorServer()
         {
             mEnteredNumber = 0;
+            previouslyEnteredNumbers = new List<double>();
             opFactory = new MathOperatorsFactory();
         }
 
@@ -68,6 +74,8 @@ namespace Calculator.Calculator
         public void AcceptOperator(string op)
         {
             currentOperator = opFactory.GetOperator(op);
+            previouslyEnteredNumbers.Add(mEnteredNumber);
+            mEnteredNumber = 0;
         }
     }
 }

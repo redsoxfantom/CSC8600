@@ -4,6 +4,7 @@ using Calculator.Calculator;
 using Moq;
 using Calculator.MathOperators.MathOperatorsFactory;
 using Calculator.MathOperators;
+using System.Collections.Generic;
 
 namespace CalcutorTest.Calculator
 {
@@ -119,11 +120,18 @@ namespace CalcutorTest.Calculator
         [TestMethod]
         public void CalculatorServerTestOperatorGood()
         {
+            po.SetFieldOrProperty("mEnteredNumber",1234);
+
             target.AcceptOperator("Good Op");
 
             mockFactory.Verify(f => f.GetOperator("Good Op"), Times.Once());
             INaryOperator actual = (INaryOperator)po.GetFieldOrProperty("currentOperator");
             Assert.AreEqual(mockOp.Object, actual);
+            List<double> previouslyEnteredNumbers = (List<double>)po.GetFieldOrProperty("previouslyEnteredNumbers");
+            Assert.AreEqual(1, previouslyEnteredNumbers.Count);
+            Assert.AreEqual(1234, previouslyEnteredNumbers[0]);
+            double mEnteredNumber = (double)po.GetFieldOrProperty("mEnteredNumber");
+            Assert.AreEqual(0, mEnteredNumber);
         }
 
         /// <summary>
