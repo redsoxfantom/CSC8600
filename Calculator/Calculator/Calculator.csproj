@@ -57,7 +57,7 @@
       <DependentUpon>CalculatorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MathOperators\MathOperatorException.cs" />
-    <Compile Include="MathOperators\MathOperators.cs" />
+    <Compile Include="MathOperators\MathOperatorsFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CalculatorForm.resx">

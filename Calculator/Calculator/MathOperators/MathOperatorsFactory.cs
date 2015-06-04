@@ -9,7 +9,7 @@ namespace Calculator.MathOperators
     /// <summary>
     /// Factory class that returns a math operator given that operator's symbol.
     /// </summary>
-    public class MathOperators
+    public class MathOperatorsFactory
     {
         /// <summary>
         /// Stores the list of operators and their symbols
