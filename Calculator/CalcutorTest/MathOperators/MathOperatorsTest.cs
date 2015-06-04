@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using Moq;
 
-namespace CalcutorTest.MathOperators
+namespace CalculatorTest.MathOperators
 {
     /// <summary>
     /// Test of the MathOperators factory class

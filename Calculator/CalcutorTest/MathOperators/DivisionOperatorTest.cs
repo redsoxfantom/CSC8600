@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Calculator.MathOperators.BinaryOperators;
 using Calculator.MathOperators;
 
-namespace CalcutorTest.MathOperators
+namespace CalculatorTest.MathOperators
 {
     /// <summary>
     /// Test the DivisionOperator class
