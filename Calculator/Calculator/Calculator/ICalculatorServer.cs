@@ -10,7 +10,7 @@ namespace Calculator.Calculator
     /// <summary>
     /// Interface for the Calculator class
     /// </summary>
-    public interface ICalculator
+    public interface ICalculatorServer
     {
         /// <summary>
         /// Called when the user presses a number on the calculator GUI

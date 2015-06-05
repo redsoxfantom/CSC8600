@@ -11,7 +11,7 @@ namespace Calculator.Calculator
     /// <summary>
     /// Implements the Calculator functionality
     /// </summary>
-    public class CalculatorServer : ICalculator
+    public class CalculatorServer : ICalculatorServer
     {
         /// <summary>
         /// A list of all numbers the user entered before pressing the equals sign
