@@ -83,7 +83,19 @@ namespace Calculator.Calculator
         /// </summary>
         public void AcceptEquals()
         {
+            //Handle the case where the user enters a number a just presses "="
+            if(currentOperator == null)
+            {
+                throw new CalculatorException("Can't perform an operation when given no operator");
+            }
 
+            previouslyEnteredNumbers.Add(mDisplayedNumber);
+            double[] operands = previouslyEnteredNumbers.ToArray();
+            mDisplayedNumber = currentOperator.PerformOperation(operands);
+
+            //Clear out the previously entered numbers
+            currentOperator = null;
+            previouslyEnteredNumbers.Clear();
         }
     }
 }
