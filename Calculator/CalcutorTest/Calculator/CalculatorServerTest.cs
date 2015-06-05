@@ -35,6 +35,11 @@ namespace CalcutorTest.Calculator
         private Mock<INaryOperator> mockOp;
 
         /// <summary>
+        /// The list of numbers entered by the user
+        /// </summary>
+        private List<double> previouslyEnteredNumbers;
+
+        /// <summary>
         /// Initialize the test
         /// </summary>
         [TestInitialize]
@@ -45,6 +50,7 @@ namespace CalcutorTest.Calculator
             mockFactory = new Mock<IMathOperatorsFactory>();
             mockOp = new Mock<INaryOperator>();
 
+            previouslyEnteredNumbers = (List<double>)po.GetFieldOrProperty("previouslyEnteredNumbers");
             po.SetFieldOrProperty("opFactory", mockFactory.Object);
             mockFactory.Setup(f => f.GetOperator("Good Op")).Returns(mockOp.Object);
             mockFactory.Setup(f => f.GetOperator("Bad Op")).Throws(new MathOperatorException());
@@ -127,7 +133,6 @@ namespace CalcutorTest.Calculator
             mockFactory.Verify(f => f.GetOperator("Good Op"), Times.Once());
             INaryOperator actual = (INaryOperator)po.GetFieldOrProperty("currentOperator");
             Assert.AreEqual(mockOp.Object, actual);
-            List<double> previouslyEnteredNumbers = (List<double>)po.GetFieldOrProperty("previouslyEnteredNumbers");
             Assert.AreEqual(1, previouslyEnteredNumbers.Count);
             Assert.AreEqual(1234, previouslyEnteredNumbers[0]);
             double mEnteredNumber = (double)po.GetFieldOrProperty("mDisplayedNumber");
@@ -144,6 +149,68 @@ namespace CalcutorTest.Calculator
             target.AcceptOperator("Bad Op");
         }
 
+        /// <summary>
+        /// Test the AcceptEquals method when there is no operator defined
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(CalculatorException))]
+        public void CalculatorServerTestEqualsNullOperator()
+        {
+            target.AcceptEquals();
+        }
 
+        /// <summary>
+        /// Successful test of AcceptEquals given no previous inputs
+        /// </summary>
+        [TestMethod]
+        public void CalculatorServerTestEqualsGood()
+        {
+            po.SetFieldOrProperty("currentOperator", mockOp.Object);
+            po.SetFieldOrProperty("mDisplayedNumber", 2);
+            double[] arry = new double[]{2.0};
+            mockOp.Setup(f => f.PerformOperation(arry)).Returns(3.0);
+
+            target.AcceptEquals();
+
+            double actual = (double)po.GetFieldOrProperty("mDisplayedNumber");
+            Assert.AreEqual(3.0, actual);
+            Assert.IsNull((INaryOperator)po.GetFieldOrProperty("currentOperator"));
+            Assert.AreEqual(0, previouslyEnteredNumbers.Count);
+        }
+
+        /// <summary>
+        /// Successful test of AcceptEquals given previous inputs
+        /// </summary>
+        [TestMethod]
+        public void CalculatorServerTestEqualsGoodWithInputs()
+        {
+            previouslyEnteredNumbers.Add(1.0);
+            po.SetFieldOrProperty("currentOperator", mockOp.Object);
+            po.SetFieldOrProperty("mDisplayedNumber", 2);
+            mockOp.Setup(f => f.PerformOperation(It.IsAny<double[]>())).Returns(3.0);
+
+            target.AcceptEquals();
+
+            double actual = (double)po.GetFieldOrProperty("mDisplayedNumber");
+            Assert.AreEqual(3.0, actual);
+            Assert.IsNull((INaryOperator)po.GetFieldOrProperty("currentOperator"));
+            Assert.AreEqual(0, previouslyEnteredNumbers.Count);
+        }
+
+        /// <summary>
+        /// Test when the user presses equals multiple times
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(CalculatorException))]
+        public void CalculatorServerTestMultipleEquals()
+        {
+            previouslyEnteredNumbers.Add(1.0);
+            po.SetFieldOrProperty("currentOperator", mockOp.Object);
+            po.SetFieldOrProperty("mDisplayedNumber", 2);
+            mockOp.Setup(f => f.PerformOperation(It.IsAny<double[]>())).Returns(3.0);
+
+            target.AcceptEquals();
+            target.AcceptEquals();
+        }
     }
 }
