@@ -48,6 +48,7 @@
     <Compile Include="Calculator\CalculatorServer.cs" />
     <Compile Include="Calculator\CalculatorException.cs" />
     <Compile Include="Calculator\ICalculatorServer.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="MathOperators\BinaryOperators\AdditionOperator.cs" />
     <Compile Include="MathOperators\BinaryOperators\BinaryOperator.cs" />
     <Compile Include="MathOperators\BinaryOperators\DivisionOperator.cs" />

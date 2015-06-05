@@ -52,14 +52,12 @@ namespace Calculator.MathOperators.MathOperatorsFactory
         {
             XmlDictionaryReader reader = null;
             
-            try
+            using( FileStream sw = new FileStream("Config\\MathOperators.xml", FileMode.Open))
             {
-                FileStream sw = new FileStream("Config\\MathOperators.xml", FileMode.Open);
                 reader = XmlDictionaryReader.CreateTextReader(sw, new XmlDictionaryReaderQuotas());
                 DataContractSerializer ser = new DataContractSerializer(typeof(MathOperatorsDataContract));
 
                 Dictionary<string, string> deserializedFile = (Dictionary<string, string>)ser.ReadObject(reader);
-                reader.Close();
 
                 foreach (string operatorSymbol in deserializedFile.Keys)
                 {
@@ -76,17 +74,6 @@ namespace Calculator.MathOperators.MathOperatorsFactory
                         //TODO: Come up with a better logging strategy
                         Console.WriteLine(string.Format("Failed to create operator: {0}", ex.Message));
                     }
-                }
-            }
-            catch(IOException ex)
-            {
-                throw new MathOperatorException(string.Format("Failed to load operators config file: {0}", ex.Message));
-            }
-            finally
-            {
-                if(reader != null)
-                {
-                    reader.Close();
                 }
             }
         }
