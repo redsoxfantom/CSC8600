@@ -60,9 +60,18 @@ namespace Calculator.Calculator.CalculatorState
         /// <returns>The state this state transitions to</returns>
         public override ICalculatorState EqualsTransition()
         {
-            OperatorList.Add(mOp);
+            try
+            {
+                OperatorList.Add(mOp);
+                return new EqualsState(OperandList, OperatorList);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(string.Format("Failed to transition from OperatorState to EqualsState: {0}", ex.Message));
+                OperatorList.Remove(mOp);
+                return this;
+            }
 
-            return null;
         }
 
         /// <summary>
