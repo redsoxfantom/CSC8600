@@ -48,9 +48,11 @@
     <Compile Include="Calculator\CalculatorServer.cs" />
     <Compile Include="Calculator\CalculatorException.cs" />
     <Compile Include="Calculator\CalculatorState\BaseCalculatorState.cs" />
+    <Compile Include="Calculator\CalculatorState\EqualsState.cs" />
     <Compile Include="Calculator\CalculatorState\ICalculatorState.cs" />
     <Compile Include="Calculator\CalculatorState\InitialState.cs" />
     <Compile Include="Calculator\CalculatorState\OperandState.cs" />
+    <Compile Include="Calculator\CalculatorState\OperatorState.cs" />
     <Compile Include="Calculator\ICalculatorServer.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="MathOperators\BinaryOperators\AdditionOperator.cs" />

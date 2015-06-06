@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Calculator.Calculator.CalculatorState
 {
+    /// <summary>
+    /// State the calculator enters when the user presses a number or decimal
+    /// </summary>
     public class OperandState : BaseCalculatorState
     {
         /// <summary>
@@ -29,13 +32,34 @@ namespace Calculator.Calculator.CalculatorState
         }
 
         /// <summary>
+        /// Construct the state with an implied initial operand of 0
+        /// </summary>
+        /// <param name="operandList">The old state's operand list</param>
+        /// <param name="operatorList">The old state's operator list</param>
+        public OperandState(List<double> operandList, List<INaryOperator> operatorList) : this(operandList,operatorList,"0")
+        {
+
+        }
+
+        /// <summary>
         /// Called when the user enters a number / decimal point
         /// </summary>
         /// <param name="op">The entered operand</param>
         /// <returns>The state this state transitions to</returns>
         public override ICalculatorState OperandTransition(string op)
         {
-            return null;
+            string mCurrentNumberString = mCurrentNumber.ToString() + op;
+            try
+            {
+                ICalculatorState newState = new OperandState(OperandList, OperatorList, mCurrentNumberString);
+                return newState;
+            }
+            catch(Exception ex)
+            {
+                // If an exception occurs, log it and return the current state
+                Console.WriteLine(string.Format("Could not transition from OperandState to OperandState: {0}", ex.Message));
+                return this;
+            }
         }
 
         /// <summary>
@@ -45,8 +69,9 @@ namespace Calculator.Calculator.CalculatorState
         /// <returns>The state the state transitions to</returns>
         public override ICalculatorState OperatorTransition(INaryOperator op)
         {
-            // Don't transition when user presses an operator
-            return this;
+            OperandList.Add(mCurrentNumber);
+
+            return new OperatorState(OperandList, OperatorList, op);
         }
 
         /// <summary>
@@ -55,8 +80,15 @@ namespace Calculator.Calculator.CalculatorState
         /// <returns>The state this state transitions to</returns>
         public override ICalculatorState EqualsTransition()
         {
-            // Don't transition on equals
-            return this;
+            try
+            {
+                return new EqualsState(OperandList, OperatorList);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(string.Format("Failed to transition to EqualsState from OperandState: {0}", ex.Message));
+                return this;
+            }
         }
 
         /// <summary>
@@ -65,7 +97,7 @@ namespace Calculator.Calculator.CalculatorState
         /// <returns>The number this state is operating on</returns>
         public override string GetCurrentNumber()
         {
-            return "";
+            return mCurrentNumber.ToString();
         }
     }
 }
