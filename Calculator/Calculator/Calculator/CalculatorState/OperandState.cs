@@ -18,6 +18,14 @@ namespace Calculator.Calculator.CalculatorState
         private double mCurrentNumber;
 
         /// <summary>
+        /// Stores whether the last operand a user entered was a decimal.
+        /// This is needed because C# canot parse a double ending in ".", so we will
+        /// need to append a "0" on the end (making it ".0"). However, we need to remember that
+        /// we did this so we can remove it when transitioning to the Operand state
+        /// </summary>
+        private bool mWasLastOperandADecimal;
+
+        /// <summary>
         /// Construct the state
         /// </summary>
         /// <param name="operandList">The previous operands</param>
@@ -25,6 +33,18 @@ namespace Calculator.Calculator.CalculatorState
         /// <param name="initialNumber">The initial operand of this state</param>
         public OperandState(List<double> operandList, List<INaryOperator> operatorList, string initialOperand) : base(operandList,operatorList)
         {
+            // Check if the input string ends in a .
+            if(initialOperand[initialOperand.Length-1] == '.')
+            {
+                // If it does, append a '0'
+                initialOperand = initialOperand + "0";
+                mWasLastOperandADecimal = true;
+            }
+            else
+            {
+                mWasLastOperandADecimal = false;
+            }
+
             if(!double.TryParse(initialOperand,out mCurrentNumber))
             {
                 throw new CalculatorException(string.Format("Entered operand \"{0}\" is not a legal operand",initialOperand));
@@ -48,7 +68,16 @@ namespace Calculator.Calculator.CalculatorState
         /// <returns>The state this state transitions to</returns>
         public override ICalculatorState OperandTransition(string op)
         {
-            string mCurrentNumberString = mCurrentNumber.ToString() + op;
+            string mCurrentNumberString = mCurrentNumber.ToString();
+
+            // If we added a "0" to this number to get it to parse,
+            // here's where we remove it
+            if(mWasLastOperandADecimal)
+            {
+                mCurrentNumberString = mCurrentNumberString.Substring(0, mCurrentNumberString.Length - 1);
+            }
+            mCurrentNumberString += op;
+            
             try
             {
                 ICalculatorState newState = new OperandState(OperandList, OperatorList, mCurrentNumberString);

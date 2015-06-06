@@ -40,7 +40,7 @@ namespace Calculator.Calculator.CalculatorState
             // Now we can store off the operator we were constructed with
             OperatorList.Add(mOp);
 
-            return new OperandState(OperandList, OperatorList);
+            return new OperandState(OperandList, OperatorList, op);
         }
 
         /// <summary>
