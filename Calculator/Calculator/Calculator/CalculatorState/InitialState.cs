@@ -23,13 +23,12 @@ namespace Calculator.Calculator.CalculatorState
         /// <returns>The state this state transitions to</returns>
         public override ICalculatorState OperandTransition(string op)
         {
-            ICalculatorState newState;
             try
             {
-                newState = new OperandState(OperandList, OperatorList, op);
+                ICalculatorState newState = new OperandState(OperandList, OperatorList, op);
                 return newState;
             }
-            catch(CalculatorException ex)
+            catch(Exception ex)
             {
                 //If there is an error transitioning, log it and stay in this state
                 Console.WriteLine(string.Format("Error transitioning from InitialState to OperandState: {0}",ex.Message));
@@ -64,7 +63,7 @@ namespace Calculator.Calculator.CalculatorState
         /// <returns>The number this state is operating on</returns>
         public override string GetCurrentNumber()
         {
-            return "";
+            return "0";
         }
     }
 }
