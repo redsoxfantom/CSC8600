@@ -71,10 +71,11 @@ namespace Calculator.Calculator.CalculatorState
             string mCurrentNumberString = mCurrentNumber.ToString();
 
             // If we added a "0" to this number to get it to parse,
-            // here's where we remove it
+            // then we need to manually add the decimal back into the string
+            // and then add the "op"
             if(mWasLastOperandADecimal)
             {
-                mCurrentNumberString = mCurrentNumberString.Substring(0, mCurrentNumberString.Length - 1);
+                mCurrentNumberString += "."; 
             }
             mCurrentNumberString += op;
             
@@ -111,11 +112,13 @@ namespace Calculator.Calculator.CalculatorState
         {
             try
             {
+                OperandList.Add(mCurrentNumber);
                 return new EqualsState(OperandList, OperatorList);
             }
             catch(Exception ex)
             {
                 Console.WriteLine(string.Format("Failed to transition to EqualsState from OperandState: {0}", ex.Message));
+                OperandList.RemoveAt(OperandList.Count - 1); // Remove the last element in the list (the element we just added)
                 return this;
             }
         }
