@@ -46,7 +46,7 @@ namespace Calculator.Calculator.CalculatorState
             }
             catch(Exception ex)
             {
-                Console.WriteLine(string.Format("Failed to transition from OperatorState to OperandState: {0}"));
+                Console.WriteLine(string.Format("Failed to transition from OperatorState to OperandState: {0}", ex.Message));
                 OperatorList.Remove(mOp);
                 return this;
             }
@@ -69,9 +69,11 @@ namespace Calculator.Calculator.CalculatorState
         /// <returns>The state this state transitions to</returns>
         public override ICalculatorState EqualsTransition()
         {
+            //Save off the operator we were initialized with
+            OperatorList.Add(mOp);
+
             try
             {
-                OperatorList.Add(mOp);
                 return new EqualsState(OperandList, OperatorList);
             }
             catch(Exception ex)
