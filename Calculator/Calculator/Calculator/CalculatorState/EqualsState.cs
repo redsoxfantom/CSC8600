@@ -65,7 +65,7 @@ namespace Calculator.Calculator.CalculatorState
                 OperandList.Reverse();  // (This is the same as adding the result to the front of the array to allow future calculations to use it)
             }
 
-            //Finished doing the calculation, add the final operator and the list of operands (minus the first one)s
+            //Finished doing the calculation, add the final operator and the list of operands (minus the first one)
             OperatorList.Add(op);
             for(int i = 1; i < OperandList.Count; i++)
             {
@@ -80,7 +80,19 @@ namespace Calculator.Calculator.CalculatorState
         /// <returns>The state this state transitions to</returns>
         public override ICalculatorState OperandTransition(string op)
         {
-            throw new NotImplementedException();
+            ICalculatorState newState;
+
+            try
+            {
+                newState = new OperandState(new List<double>(), new List<INaryOperator>(), op);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(string.Format("Error transitioning from EqualsState to OperandState: {0}", ex.Message));
+                newState = this;
+            }
+
+            return newState;
         }
 
         /// <summary>
@@ -90,7 +102,12 @@ namespace Calculator.Calculator.CalculatorState
         /// <returns>The state the state transitions to</returns>
         public override ICalculatorState OperatorTransition(INaryOperator op)
         {
-            throw new NotImplementedException();
+            List<double> newOperands = new List<double>();
+            newOperands.Add(result); // Add the result of this calculation to the operandList to allow it to be used in future calculations
+
+            ICalculatorState newState = new OperatorState(newOperands, new List<INaryOperator>(), op);
+
+            return newState;
         }
 
         /// <summary>
