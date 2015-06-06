@@ -33,7 +33,7 @@ namespace Calculator.Calculator.CalculatorState
         /// </summary>
         /// <param name="operandList">The old state's operands</param>
         /// <param name="operatorList">The old state's operators</param>
-        protected BaseCalculatorState(List<double> operandList, List<INaryOperator> operatorList)
+        public BaseCalculatorState(List<double> operandList, List<INaryOperator> operatorList)
         {
             OperatorList = operatorList;
             OperandList = operandList;
