@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Calculator\CalculatorServer.cs" />
     <Compile Include="Calculator\CalculatorException.cs" />
+    <Compile Include="Calculator\CalculatorState\ICalculatorState.cs" />
     <Compile Include="Calculator\ICalculatorServer.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="MathOperators\BinaryOperators\AdditionOperator.cs" />
@@ -97,6 +98,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
