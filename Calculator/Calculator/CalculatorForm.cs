@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Calculator.Logger;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,21 @@ namespace Calculator
 {
     public partial class CalculatorForm : Form
     {
+        /// <summary>
+        /// This class's logger
+        /// </summary>
+        private ILogger mLogger;
+
+        /// <summary>
+        /// Create the form
+        /// </summary>
         public CalculatorForm()
         {
             InitializeComponent();
+            LoggerFactory.SetLoggerOutput(DebugTextBox);
+
+            mLogger = LoggerFactory.CreateLogger(this.GetType().Name);
+            mLogger.Info("========Calculator========");
         }
 
         /// <summary>
@@ -25,7 +38,8 @@ namespace Calculator
         private void numberBtnClick(object sender, EventArgs e)
         {
             string buttonText = (string)((Button)sender).Tag;
-            int buttonVal = int.Parse(buttonText);
+
+            mLogger.Info(string.Format("{0} clicked", buttonText));
         }
 
         /// <summary>
