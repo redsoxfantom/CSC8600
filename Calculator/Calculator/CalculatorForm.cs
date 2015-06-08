@@ -1,4 +1,5 @@
-﻿using Calculator.Logger;
+﻿using Calculator.Calculator;
+using Calculator.Logger;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,15 +20,22 @@ namespace Calculator
         private ILogger mLogger;
 
         /// <summary>
+        /// The calculator
+        /// </summary>
+        private ICalculatorServer mCalc;
+
+        /// <summary>
         /// Create the form
         /// </summary>
         public CalculatorForm()
         {
             InitializeComponent();
             LoggerFactory.SetLoggerOutput(DebugTextBox);
-
             mLogger = LoggerFactory.CreateLogger(this.GetType().Name);
             mLogger.Info("========Calculator========");
+
+            mCalc = new CalculatorServer();
+            mCalc.Initialize();
         }
 
         /// <summary>
