@@ -48,6 +48,8 @@ namespace Calculator.Calculator.CalculatorState
 
             while(OperatorList.Count > 0) // For each operator in the operatorList
             {
+                operands.Clear(); // Clear out the operands list between each run
+
                 op = OperatorList[0];       //Get the operator at index 0...
                 OperatorList.RemoveAt(0);   //..And delete that operator from the list
 
