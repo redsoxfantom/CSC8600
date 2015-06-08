@@ -119,7 +119,10 @@ namespace Calculator.Calculator.CalculatorState
         {
             try
             {
-                return new EqualsState(OperandList, OperatorList);
+                //Create copies of the lists to send in. Do this in case an exception is thrown and we want to prevent the lists from getting trashed
+                List<INaryOperator> newOperatorList = new List<INaryOperator>(OperatorList.ToArray());
+                List<double> newOperandList = new List<double>(OperandList.ToArray());
+                return new EqualsState(newOperandList, newOperatorList);
             }
             catch(Exception ex)
             {
