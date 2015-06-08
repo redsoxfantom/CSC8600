@@ -86,7 +86,8 @@ namespace Calculator.MathOperators.MathOperatorsFactory
                     }
                 }
             }
-            mLogger.Info(string.Format("Done initializing MathOperatorsFactory with following operators: {0}",operators.Keys.ToString()));
+            string operatorsString = String.Join(", ", operators.Keys.ToArray());
+            mLogger.Info(string.Format("Done initializing MathOperatorsFactory with following operators: [{0}]",operatorsString));
         }
     }
 }
