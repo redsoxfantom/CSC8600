@@ -27,5 +27,23 @@ namespace Calculator
             string buttonText = (string)((Button)sender).Tag;
             int buttonVal = int.Parse(buttonText);
         }
+
+        /// <summary>
+        /// Fired when the user selects "Show Debug Menu"
+        /// </summary>
+        /// <param name="sender">The menu item</param>
+        /// <param name="e">unused</param>
+        private void showDebugConsoleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem debugMenuItem = (ToolStripMenuItem)sender;
+            if(debugMenuItem.Checked)
+            {
+                DebugTextBox.Visible = true;
+            }
+            else
+            {
+                DebugTextBox.Visible = false;
+            }
+        }
     }
 }
