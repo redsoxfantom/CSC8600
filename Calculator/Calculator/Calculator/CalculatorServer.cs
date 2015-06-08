@@ -1,4 +1,5 @@
-﻿using Calculator.MathOperators;
+﻿using Calculator.Calculator.CalculatorState;
+using Calculator.MathOperators;
 using Calculator.MathOperators.MathOperatorsFactory;
 using System;
 using System.Collections.Generic;
@@ -14,33 +15,22 @@ namespace Calculator.Calculator
     public class CalculatorServer : ICalculatorServer
     {
         /// <summary>
-        /// A list of all numbers the user entered before pressing the equals sign
-        /// </summary>
-        private List<double> previouslyEnteredNumbers;
-
-        /// <summary>
-        /// The number displayed on the screen
-        /// </summary>
-        private double mDisplayedNumber;
-
-        /// <summary>
         /// The factory that generates math operators
         /// </summary>
         private IMathOperatorsFactory opFactory;
 
         /// <summary>
-        /// The operator the user selected
+        /// The current state of the calculator
         /// </summary>
-        private INaryOperator currentOperator;
+        private ICalculatorState mState;
 
         /// <summary>
         /// The constructor
         /// </summary>
         public CalculatorServer()
         {
-            mDisplayedNumber = 0;
-            previouslyEnteredNumbers = new List<double>();
             opFactory = new MathOperatorsFactory();
+            mState = new InitialState();
         }
 
         /// <summary>
@@ -57,14 +47,7 @@ namespace Calculator.Calculator
         /// <param name="number">The number the user entered</param>
         public void AcceptNumber(string number)
         {
-            StringBuilder currentNumberString = new StringBuilder(mDisplayedNumber.ToString());
-            currentNumberString.Append(number);
-
-            if(!Double.TryParse(currentNumberString.ToString(), out mDisplayedNumber))
-            {
-                mDisplayedNumber = 0;
-                throw new CalculatorException(string.Format("The entered number {0} is not valid",currentNumberString.ToString()));
-            }
+            mState = mState.OperandTransition(number);
         }
 
         /// <summary>
@@ -73,9 +56,8 @@ namespace Calculator.Calculator
         /// <param name="op">The operator</param>
         public void AcceptOperator(string op)
         {
-            currentOperator = opFactory.GetOperator(op);
-            previouslyEnteredNumbers.Add(mDisplayedNumber);
-            mDisplayedNumber = 0;
+            INaryOperator newOp = opFactory.GetOperator(op);
+            mState = mState.OperatorTransition(newOp);
         }
 
         /// <summary>
@@ -83,19 +65,7 @@ namespace Calculator.Calculator
         /// </summary>
         public void AcceptEquals()
         {
-            //Handle the case where the user enters a number a just presses "="
-            if(currentOperator == null)
-            {
-                throw new CalculatorException("Can't perform an operation when given no operator");
-            }
-
-            previouslyEnteredNumbers.Add(mDisplayedNumber);
-            double[] operands = previouslyEnteredNumbers.ToArray();
-            mDisplayedNumber = currentOperator.PerformOperation(operands);
-
-            //Clear out the previously entered numbers
-            currentOperator = null;
-            previouslyEnteredNumbers.Clear();
+            mState = mState.EqualsTransition();
         }
     }
 }
