@@ -66,7 +66,7 @@ namespace Calculator.Logger
         /// <param name="str">String to print</param>
         private void Print(string str)
         {
-            mTextBox.Text += str + Environment.NewLine;
+            mTextBox.AppendText(str + Environment.NewLine);
         }
     }
 }
