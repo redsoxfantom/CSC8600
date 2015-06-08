@@ -15,7 +15,7 @@ namespace Calculator.MathOperators.BinaryOperators
         /// <summary>
         /// The logger for the Operator
         /// </summary>
-        private ILogger mLogger;
+        protected ILogger mLogger;
 
         /// <summary>
         /// Constructor for the operator
