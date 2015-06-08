@@ -13,7 +13,7 @@ namespace Calculator.Calculator.CalculatorState
         /// </summary>
         public InitialState() : base()
         {
-
+            mLogger.Info("In Initial State");
         }
 
         /// <summary>
@@ -25,13 +25,14 @@ namespace Calculator.Calculator.CalculatorState
         {
             try
             {
+                mLogger.Info(string.Format("Attempting to transition from Initial State to Operand State after receiving Operand [{0}]",op));
                 ICalculatorState newState = new OperandState(OperandList, OperatorList, op);
                 return newState;
             }
             catch(Exception ex)
             {
                 //If there is an error transitioning, log it and stay in this state
-                Console.WriteLine(string.Format("Error transitioning from InitialState to OperandState: {0}",ex.Message));
+                mLogger.Error(string.Format("Error transitioning from Initial State to Operand State: {0}",ex.Message));
                 return this;
             }
         }
@@ -44,6 +45,7 @@ namespace Calculator.Calculator.CalculatorState
         public override ICalculatorState OperatorTransition(INaryOperator op)
         {
             // Don't transition when user presses an operator
+            mLogger.Info("Can't transition from Initial State to Operator State");
             return this;
         }
 
@@ -54,6 +56,7 @@ namespace Calculator.Calculator.CalculatorState
         public override ICalculatorState EqualsTransition()
         {
             // Don't transition on equals
+            mLogger.Info("Can't transition from Initial State to Equals State");
             return this;
         }
 
