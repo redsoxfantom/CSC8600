@@ -4,6 +4,7 @@ using Calculator.Calculator.CalculatorState;
 using System.Collections.Generic;
 using Calculator.MathOperators;
 using Moq;
+using Calculator.Calculator;
 
 namespace CalcutorTest.Calculator.CalculatorState
 {
@@ -118,6 +119,24 @@ namespace CalcutorTest.Calculator.CalculatorState
             operandsList.Add(1.0);
             op.Setup(f => f.NumOperandsExpected()).Returns(2);
             op.Setup(f => f.PerformOperation(It.IsAny<double[]>())).Returns(3);
+            operatorsList.Add(op.Object);
+
+            target = new EqualsState(operandsList, operatorsList);
+        }
+
+        /// <summary>
+        /// Test the Constructor when an Operator throws an exception
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(CalculatorException))]
+        public void EqualsStateTestConstructorBadOperation()
+        {
+            operandsList.Clear();
+            operatorsList.Clear();
+            operandsList.Add(1.0);
+            operandsList.Add(2.0);
+            op.Setup(f => f.NumOperandsExpected()).Returns(2);
+            op.Setup(f => f.PerformOperation(It.IsAny<double[]>())).Throws(new CalculatorException("Error"));
             operatorsList.Add(op.Object);
 
             target = new EqualsState(operandsList, operatorsList);
