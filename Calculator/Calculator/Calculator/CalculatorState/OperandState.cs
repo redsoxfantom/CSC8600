@@ -33,12 +33,15 @@ namespace Calculator.Calculator.CalculatorState
         /// <param name="initialNumber">The initial operand of this state</param>
         public OperandState(List<double> operandList, List<INaryOperator> operatorList, string initialOperand) : base(operandList,operatorList)
         {
+            mLogger.Info(string.Format("In Operand State, intial operand: [{0}]", initialOperand));
+
             // Check if the input string ends in a .
             if(initialOperand[initialOperand.Length-1] == '.')
             {
                 // If it does, append a '0'
                 initialOperand = initialOperand + "0";
                 mWasLastOperandADecimal = true;
+                mLogger.Debug("Initial Operand ends with a decimal");
             }
             else
             {
@@ -81,13 +84,14 @@ namespace Calculator.Calculator.CalculatorState
             
             try
             {
+                mLogger.Info("Attempting to transition from OperandState to OperandState");
                 ICalculatorState newState = new OperandState(OperandList, OperatorList, mCurrentNumberString);
                 return newState;
             }
             catch(Exception ex)
             {
                 // If an exception occurs, log it and return the current state
-                Console.WriteLine(string.Format("Could not transition from OperandState to OperandState: {0}", ex.Message));
+                mLogger.Error(string.Format("Could not transition from OperandState to OperandState: {0}", ex.Message));
                 return this;
             }
         }
@@ -100,6 +104,7 @@ namespace Calculator.Calculator.CalculatorState
         public override ICalculatorState OperatorTransition(INaryOperator op)
         {
             OperandList.Add(mCurrentNumber);
+            mLogger.Info(string.Format("Transitioning from Operand State to Operator State, final Operand was [{0}]",mCurrentNumber.ToString()));
 
             return new OperatorState(OperandList, OperatorList, op);
         }
@@ -113,11 +118,12 @@ namespace Calculator.Calculator.CalculatorState
             try
             {
                 OperandList.Add(mCurrentNumber);
+                mLogger.Info(string.Format("Attempting to transition from Operand State to Equals State, final Operand was [{0}]", mCurrentNumber.ToString()));
                 return new EqualsState(OperandList, OperatorList);
             }
             catch(Exception ex)
             {
-                Console.WriteLine(string.Format("Failed to transition to EqualsState from OperandState: {0}", ex.Message));
+                mLogger.Error(string.Format("Failed to transition to EqualsState from OperandState: {0}", ex.Message));
                 OperandList.RemoveAt(OperandList.Count - 1); // Remove the last element in the list (the element we just added)
                 return this;
             }
