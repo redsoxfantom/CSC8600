@@ -26,5 +26,18 @@ namespace Calculator.Logger
         {
             mOutputBox = outputBox;
         }
+
+        /// <summary>
+        /// Build and return a logger to use
+        /// </summary>
+        /// <param name="name">The name of the logger. Recommend using the class type name</param>
+        /// <returns>A logger</returns>
+        public static ILogger CreateLogger(string name)
+        {
+            if(mOutputBox == null) // SetLoggerOutput has not been called!
+            {
+                return new NullLogger();
+            }
+        }
     }
 }
