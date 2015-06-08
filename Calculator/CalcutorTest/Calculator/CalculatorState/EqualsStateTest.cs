@@ -84,6 +84,7 @@ namespace CalcutorTest.Calculator.CalculatorState
 
         /// <summary>
         /// Test the Constructor when passed a single operator expecting two operands
+        /// Performs the equivalent of 1+2
         /// </summary>
         [TestMethod]
         public void EqualsStateTestConstructorSingleOperator()
@@ -140,6 +141,73 @@ namespace CalcutorTest.Calculator.CalculatorState
             operatorsList.Add(op.Object);
 
             target = new EqualsState(operandsList, operatorsList);
+        }
+
+        /// <summary>
+        /// Test the constructor when two operators are passed
+        /// Performs the equvalent of 1+2+4
+        /// </summary>
+        [TestMethod]
+        public void EqualsStateTestConstructorTwoOperators()
+        {
+            operandsList.Clear();
+            operatorsList.Clear();
+            operandsList.Add(1.0);
+            operandsList.Add(2.0);
+            operandsList.Add(4.0);
+            op.Setup(f => f.NumOperandsExpected()).Returns(2);
+            op.Setup(f => f.PerformOperation(It.IsAny<double[]>())).Returns(3);
+            operatorsList.Add(op.Object);
+            Mock<INaryOperator> secondOp = new Mock<INaryOperator>();
+            secondOp.Setup(f => f.NumOperandsExpected()).Returns(2);
+            secondOp.Setup(f => f.PerformOperation(It.IsAny<double[]>())).Returns(7);
+            operatorsList.Add(secondOp.Object);
+
+            target = new EqualsState(operandsList, operatorsList);
+
+            LoadData();
+            Assert.AreEqual(7, result);
+            Assert.AreEqual(2, finalOperandsList.Count);
+            Assert.AreEqual(7, finalOperandsList[0]);
+            Assert.AreEqual(4, finalOperandsList[1]);
+            Assert.AreEqual(1, finalOperatorsList.Count);
+            Assert.AreEqual(secondOp.Object, finalOperatorsList[0]);
+        }
+
+        /// <summary>
+        /// Test the constructor when multiple operators are passed
+        /// Performs the equivalent of 1+2+3+4
+        /// </summary>
+        [TestMethod]
+        public void EqualsStateTestConstructorMultipleOperators()
+        {
+            operandsList.Clear();
+            operatorsList.Clear();
+            operandsList.Add(1.0);
+            operandsList.Add(2.0);
+            operandsList.Add(3.0);
+            operandsList.Add(4.0);
+            op.Setup(f => f.NumOperandsExpected()).Returns(2);
+            op.Setup(f => f.PerformOperation(It.IsAny<double[]>())).Returns(3);
+            operatorsList.Add(op.Object);
+            Mock<INaryOperator> secondOp = new Mock<INaryOperator>();
+            secondOp.Setup(f => f.NumOperandsExpected()).Returns(2);
+            secondOp.Setup(f => f.PerformOperation(It.IsAny<double[]>())).Returns(6);
+            operatorsList.Add(secondOp.Object);
+            Mock<INaryOperator> thirdOp = new Mock<INaryOperator>();
+            thirdOp.Setup(f => f.NumOperandsExpected()).Returns(2);
+            thirdOp.Setup(f => f.PerformOperation(It.IsAny<double[]>())).Returns(10);
+            operatorsList.Add(thirdOp.Object);
+
+            target = new EqualsState(operandsList, operatorsList);
+
+            LoadData();
+            Assert.AreEqual(10, result);
+            Assert.AreEqual(2, finalOperandsList.Count);
+            Assert.AreEqual(10, finalOperandsList[0]);
+            Assert.AreEqual(4, finalOperandsList[1]);
+            Assert.AreEqual(1, finalOperatorsList.Count);
+            Assert.AreEqual(thirdOp.Object, finalOperatorsList[0]);
         }
 
         /// <summary>
