@@ -107,6 +107,23 @@ namespace CalcutorTest.Calculator.CalculatorState
         }
 
         /// <summary>
+        /// Test the Constructor when passed a bad number of operands
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void EqualsStateTestConstructorBadNumOperands()
+        {
+            operandsList.Clear();
+            operatorsList.Clear();
+            operandsList.Add(1.0);
+            op.Setup(f => f.NumOperandsExpected()).Returns(2);
+            op.Setup(f => f.PerformOperation(It.IsAny<double[]>())).Returns(3);
+            operatorsList.Add(op.Object);
+
+            target = new EqualsState(operandsList, operatorsList);
+        }
+
+        /// <summary>
         /// Load the result of the calculation and the lists
         /// </summary>
         private void LoadData()
