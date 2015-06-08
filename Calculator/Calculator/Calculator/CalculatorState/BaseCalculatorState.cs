@@ -1,4 +1,5 @@
-﻿using Calculator.MathOperators;
+﻿using Calculator.Logger;
+using Calculator.MathOperators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,12 +21,18 @@ namespace Calculator.Calculator.CalculatorState
         protected List<INaryOperator> OperatorList;
 
         /// <summary>
+        /// Logger for the State
+        /// </summary>
+        protected ILogger mLogger;
+
+        /// <summary>
         /// Publically accessible Constructor
         /// </summary>
         public BaseCalculatorState()
         {
             OperandList = new List<double>();
             OperatorList = new List<INaryOperator>();
+            InitLogger();
         }
 
         /// <summary>
@@ -37,6 +44,15 @@ namespace Calculator.Calculator.CalculatorState
         {
             OperatorList = operatorList;
             OperandList = operandList;
+            InitLogger();
+        }
+
+        /// <summary>
+        /// Initialize the logger
+        /// </summary>
+        private void InitLogger()
+        {
+            mLogger = LoggerFactory.CreateLogger(this.GetType().Name);
         }
 
         /// <summary>
