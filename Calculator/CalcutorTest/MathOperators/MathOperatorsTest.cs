@@ -64,10 +64,11 @@ namespace CalculatorTest.MathOperators
         /// Test the getOperator method when the operator is not defined
         /// </summary>
         [TestMethod]
-        [ExpectedException(typeof(MathOperatorException))]
         public void OpFactoryGetNonExistantOperator()
         {
             INaryOperator op = target.GetOperator("BAD_OP");
+
+            Assert.IsNull(op);
         }
     }
 }
