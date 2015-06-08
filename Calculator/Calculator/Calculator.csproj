@@ -55,6 +55,7 @@
     <Compile Include="Calculator\CalculatorState\OperatorState.cs" />
     <Compile Include="Calculator\ICalculatorServer.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Logger\ILogger.cs" />
     <Compile Include="Logger\LoggerFactory.cs" />
     <Compile Include="MathOperators\BinaryOperators\AdditionOperator.cs" />
     <Compile Include="MathOperators\BinaryOperators\BinaryOperator.cs" />
