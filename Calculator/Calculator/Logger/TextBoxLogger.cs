@@ -39,7 +39,7 @@ namespace Calculator.Logger
         /// <param name="str">The string</param>
         public void Debug(string str)
         {
-            //Do nothing
+            Print(string.Format("DEBUG [{0}]: {1}", mName, str));
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace Calculator.Logger
         /// <param name="str">The string</param>
         public void Info(string str)
         {
-            //Do nothing
+            Print(string.Format("INFO [{0}]: {1}", mName, str));
         }
 
         /// <summary>
@@ -57,7 +57,16 @@ namespace Calculator.Logger
         /// <param name="str">str</param>
         public void Error(string str)
         {
-            //Do nothing
+            Print(string.Format("ERROR [{0}]: {1}", mName, str));
+        }
+
+        /// <summary>
+        /// Print a string to the text box
+        /// </summary>
+        /// <param name="str">String to print</param>
+        private void Print(string str)
+        {
+            mTextBox.Text += str + "\n";
         }
     }
 }

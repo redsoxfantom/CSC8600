@@ -38,6 +38,10 @@ namespace Calculator.Logger
             {
                 return new NullLogger();
             }
+            else
+            {
+                return new TextBoxLogger(name, mOutputBox);
+            }
         }
     }
 }
