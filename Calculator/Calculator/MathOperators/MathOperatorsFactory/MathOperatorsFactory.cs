@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Calculator.Logger;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -21,11 +22,17 @@ namespace Calculator.MathOperators.MathOperatorsFactory
         private Dictionary<string, INaryOperator> operators;
 
         /// <summary>
+        /// A logger for the factory
+        /// </summary>
+        private ILogger mLogger;
+
+        /// <summary>
         /// Construct the Factory. Call InitializeOperators to load config
         /// </summary>
         public MathOperatorsFactory()
         {
             operators = new Dictionary<string, INaryOperator>();
+            mLogger = LoggerFactory.CreateLogger(this.GetType().Name);
         }
 
         /// <summary>
@@ -41,7 +48,8 @@ namespace Calculator.MathOperators.MathOperatorsFactory
             }
             else
             {
-                throw new MathOperatorException(string.Format("Math symbol {0} not supported", symbol));
+                mLogger.Error(string.Format("Math symbol {0} not supported", symbol));
+                return null;
             }
         }
 
@@ -50,6 +58,7 @@ namespace Calculator.MathOperators.MathOperatorsFactory
         /// </summary>
         public void InitializeOperators()
         {
+            mLogger.Info("Initializing MathOperatorsFactory");
             XmlDictionaryReader reader = null;
             
             using( FileStream sw = new FileStream("Config\\MathOperators.xml", FileMode.Open))
@@ -61,6 +70,7 @@ namespace Calculator.MathOperators.MathOperatorsFactory
 
                 foreach (string operatorSymbol in deserializedFile.Keys)
                 {
+                    mLogger.Debug(string.Format("Attempting to create operator {0}", operatorSymbol));
                     try
                     {
                         string operatorTypeString = deserializedFile[operatorSymbol];
@@ -68,14 +78,15 @@ namespace Calculator.MathOperators.MathOperatorsFactory
                         INaryOperator op = (INaryOperator)Activator.CreateInstance(operatorType, new object[] { });
 
                         operators.Add(operatorSymbol, op);
+                        mLogger.Debug(string.Format("Successfully created operator {0}", operatorSymbol));
                     }
                     catch(Exception ex)
                     {
-                        //TODO: Come up with a better logging strategy
-                        Console.WriteLine(string.Format("Failed to create operator: {0}", ex.Message));
+                        mLogger.Error(string.Format("Failed to create operator: {0}", ex.Message));
                     }
                 }
             }
+            mLogger.Info(string.Format("Done initializing MathOperatorsFactory with following operators: {0}",operators.Keys.ToString()));
         }
     }
 }
