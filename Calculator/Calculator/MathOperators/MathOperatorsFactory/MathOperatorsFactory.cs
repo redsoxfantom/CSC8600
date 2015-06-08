@@ -49,6 +49,7 @@ namespace Calculator.MathOperators.MathOperatorsFactory
             else
             {
                 mLogger.Error(string.Format("Math symbol {0} not supported", symbol));
+                //Todo: this should really return a Null Operator...
                 return null;
             }
         }
