@@ -229,7 +229,7 @@ namespace CalcutorTest.Calculator.CalculatorState
         /// Test the Equals Transition
         /// </summary>
         [TestMethod]
-        public void OperandStateTestEqualsTransitionn()
+        public void OperandStateTestEqualsTransition()
         {
             InitializeTarget();
             po.SetFieldOrProperty("mCurrentNumber", 1.5);

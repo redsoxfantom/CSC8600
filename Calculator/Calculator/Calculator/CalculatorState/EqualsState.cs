@@ -44,15 +44,14 @@ namespace Calculator.Calculator.CalculatorState
         private void CalculateResult()
         {
             INaryOperator op = null;
-            List<double> operands = null;
+            List<double> operands = new List<double>();
 
             while(OperatorList.Count > 0) // For each operator in the operatorList
             {
                 op = OperatorList[0];       //Get the operator at index 0...
                 OperatorList.RemoveAt(0);   //..And delete that operator from the list
 
-                operands = new List<double>(); // Now construct the list of operands that will be passed to the operator
-                for(int i = 0; i < op.NumOperandsExpected(); i++)
+                for (int i = 0; i < op.NumOperandsExpected(); i++) // Now construct the list of operands that will be passed to the operator
                 {
                     operands.Add(OperandList[i]);
                 }
@@ -67,7 +66,7 @@ namespace Calculator.Calculator.CalculatorState
 
             //Finished doing the calculation, add the final operator and the list of operands (minus the first one)
             OperatorList.Add(op);
-            for(int i = 1; i < OperandList.Count; i++)
+            for(int i = 1; i < operands.Count; i++)
             {
                 OperandList.Add(operands[i]);
             }
