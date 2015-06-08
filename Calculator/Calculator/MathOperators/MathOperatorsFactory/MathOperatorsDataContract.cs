@@ -10,7 +10,7 @@ namespace Calculator.MathOperators.MathOperatorsFactory
     /// <summary>
     /// Data contract defining a dictionary of symbols an INaryOperators that will be loaded on initialization of the MathOperatorsFactory
     /// </summary>
-    [CollectionDataContract(ItemName="OperatorDefinition",Name="MathOperators", KeyName="Symbol", ValueName="Operator")]
+    [CollectionDataContract(ItemName="OperatorDefinition",Name="MathOperators", KeyName="Symbol", ValueName="Operator", Namespace="")]
     public class MathOperatorsDataContract : Dictionary<string,string>
     {
     }
