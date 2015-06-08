@@ -252,7 +252,7 @@
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(545, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(868, 24);
             this.menuStrip1.TabIndex = 17;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -274,12 +274,13 @@
             // 
             // DebugTextBox
             // 
-            this.DebugTextBox.Location = new System.Drawing.Point(225, 28);
+            this.DebugTextBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DebugTextBox.Location = new System.Drawing.Point(234, 27);
             this.DebugTextBox.Multiline = true;
             this.DebugTextBox.Name = "DebugTextBox";
             this.DebugTextBox.ReadOnly = true;
             this.DebugTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.DebugTextBox.Size = new System.Drawing.Size(308, 217);
+            this.DebugTextBox.Size = new System.Drawing.Size(622, 217);
             this.DebugTextBox.TabIndex = 18;
             this.DebugTextBox.Visible = false;
             this.DebugTextBox.WordWrap = false;
@@ -290,7 +291,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(545, 254);
+            this.ClientSize = new System.Drawing.Size(868, 258);
             this.Controls.Add(this.DebugTextBox);
             this.Controls.Add(this.DecimalButton);
             this.Controls.Add(this.EqualsBtn);
