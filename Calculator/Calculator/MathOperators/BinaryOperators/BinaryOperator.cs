@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Calculator.Logger;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,19 @@ namespace Calculator.MathOperators.BinaryOperators
     /// </summary>
     public abstract class BinaryOperator : INaryOperator
     {
+        /// <summary>
+        /// The logger for the Operator
+        /// </summary>
+        private ILogger mLogger;
+
+        /// <summary>
+        /// Constructor for the operator
+        /// </summary>
+        public BinaryOperator()
+        {
+            mLogger = LoggerFactory.CreateLogger(this.GetType().Name);
+        }
+
         /// <summary>
         /// Perform the operator's function
         /// </summary>
