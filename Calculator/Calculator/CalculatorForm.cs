@@ -91,5 +91,16 @@ namespace Calculator
             mLogger.Info(string.Format("{0} clicked", buttonText));
             mCalc.AcceptOperator(buttonText);
         }
+
+        /// <summary>
+        /// Fired when the user presses Equals
+        /// </summary>
+        /// <param name="sender">unused</param>
+        /// <param name="e">unused</param>
+        private void equalsBtnClicked(object sender, EventArgs e)
+        {
+            mLogger.Info("Equals Clicked");
+            mCalc.AcceptEquals();
+        }
     }
 }

@@ -239,6 +239,7 @@
             this.EqualsBtn.Tag = "=";
             this.EqualsBtn.Text = "=";
             this.EqualsBtn.UseVisualStyleBackColor = true;
+            this.EqualsBtn.Click += new System.EventHandler(this.equalsBtnClicked);
             // 
             // DecimalButton
             // 
