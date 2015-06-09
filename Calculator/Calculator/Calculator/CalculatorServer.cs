@@ -10,6 +10,12 @@ using System.Threading.Tasks;
 namespace Calculator.Calculator
 {
     /// <summary>
+    /// Delegate called when the calculator server's number is updated
+    /// </summary>
+    /// <param name="newNum">The new number from the server</param>
+    public delegate void NumberUpdated(String newNum);
+
+    /// <summary>
     /// Implements the Calculator functionality
     /// </summary>
     public class CalculatorServer : ICalculatorServer
@@ -23,6 +29,11 @@ namespace Calculator.Calculator
         /// The current state of the calculator
         /// </summary>
         private ICalculatorState mState;
+
+        /// <summary>
+        /// Event for clients to register for to see the new number from this server
+        /// </summary>
+        public event NumberUpdated Updated;
 
         /// <summary>
         /// The constructor
@@ -48,6 +59,7 @@ namespace Calculator.Calculator
         public void AcceptNumber(string number)
         {
             mState = mState.OperandTransition(number);
+            OnUpdated();
         }
 
         /// <summary>
@@ -58,6 +70,7 @@ namespace Calculator.Calculator
         {
             INaryOperator newOp = opFactory.GetOperator(op);
             mState = mState.OperatorTransition(newOp);
+            OnUpdated();
         }
 
         /// <summary>
@@ -66,6 +79,18 @@ namespace Calculator.Calculator
         public void AcceptEquals()
         {
             mState = mState.EqualsTransition();
+            OnUpdated();
+        }
+
+        /// <summary>
+        /// Update all clients that a new number is available
+        /// </summary>
+        private void OnUpdated()
+        {
+            if(Updated != null)
+            {
+                Updated(mState.GetCurrentNumber());
+            }
         }
     }
 }
