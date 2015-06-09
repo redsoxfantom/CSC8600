@@ -78,5 +78,18 @@ namespace Calculator
                 DebugTextBox.Visible = false;
             }
         }
+
+        /// <summary>
+        /// Fired when the user pressed an operator key
+        /// </summary>
+        /// <param name="sender">The button that was pressed</param>
+        /// <param name="e">unused</param>
+        private void operatorBtnClicked(object sender, EventArgs e)
+        {
+            string buttonText = (string)((Button)sender).Tag;
+
+            mLogger.Info(string.Format("{0} clicked", buttonText));
+            mCalc.AcceptOperator(buttonText);
+        }
     }
 }

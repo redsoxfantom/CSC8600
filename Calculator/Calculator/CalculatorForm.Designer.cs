@@ -191,6 +191,7 @@
             this.PlusBtn.Tag = "+";
             this.PlusBtn.Text = "+";
             this.PlusBtn.UseVisualStyleBackColor = true;
+            this.PlusBtn.Click += new System.EventHandler(this.operatorBtnClicked);
             // 
             // MinusBtn
             // 
@@ -202,6 +203,7 @@
             this.MinusBtn.Tag = "-";
             this.MinusBtn.Text = "-";
             this.MinusBtn.UseVisualStyleBackColor = true;
+            this.MinusBtn.Click += new System.EventHandler(this.operatorBtnClicked);
             // 
             // MultiplyBtn
             // 
@@ -213,6 +215,7 @@
             this.MultiplyBtn.Tag = "*";
             this.MultiplyBtn.Text = "*";
             this.MultiplyBtn.UseVisualStyleBackColor = true;
+            this.MultiplyBtn.Click += new System.EventHandler(this.operatorBtnClicked);
             // 
             // DivideBtn
             // 
@@ -224,6 +227,7 @@
             this.DivideBtn.Tag = "/";
             this.DivideBtn.Text = "/";
             this.DivideBtn.UseVisualStyleBackColor = true;
+            this.DivideBtn.Click += new System.EventHandler(this.operatorBtnClicked);
             // 
             // EqualsBtn
             // 
