@@ -57,6 +57,7 @@
             this.AnswerField.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AnswerField.Location = new System.Drawing.Point(12, 27);
             this.AnswerField.Name = "AnswerField";
+            this.AnswerField.ReadOnly = true;
             this.AnswerField.Size = new System.Drawing.Size(206, 30);
             this.AnswerField.TabIndex = 0;
             // 
