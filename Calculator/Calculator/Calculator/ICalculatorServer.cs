@@ -13,6 +13,11 @@ namespace Calculator.Calculator
     public interface ICalculatorServer
     {
         /// <summary>
+        /// Event for clients to register for to see the new number from this server
+        /// </summary>
+        event NumberUpdated Updated;
+
+        /// <summary>
         /// Called when the user presses a number on the calculator GUI
         /// </summary>
         /// <param name="number">The number the user entered</param>

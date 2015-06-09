@@ -35,7 +35,17 @@ namespace Calculator
             mLogger.Info("========Calculator========");
 
             mCalc = new CalculatorServer();
+            mCalc.Updated += NewNumberReceived;
             mCalc.Initialize();
+        }
+
+        /// <summary>
+        /// Update the calculator's number
+        /// </summary>
+        /// <param name="newNum">The new number</param>
+        private void NewNumberReceived(string newNum)
+        {
+            AnswerField.Text = newNum;
         }
 
         /// <summary>
