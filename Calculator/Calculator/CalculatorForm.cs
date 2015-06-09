@@ -39,7 +39,7 @@ namespace Calculator
         }
 
         /// <summary>
-        /// Fired when any number button (0 - 9) is clicked
+        /// Fired when any number button (0 - 9 and decimal) is clicked
         /// </summary>
         /// <param name="sender">The button that was pressed</param>
         /// <param name="e">unused</param>
@@ -48,6 +48,7 @@ namespace Calculator
             string buttonText = (string)((Button)sender).Tag;
 
             mLogger.Info(string.Format("{0} clicked", buttonText));
+            mCalc.AcceptNumber(buttonText);
         }
 
         /// <summary>

@@ -245,6 +245,7 @@
             this.DecimalButton.Tag = ".";
             this.DecimalButton.Text = ".";
             this.DecimalButton.UseVisualStyleBackColor = true;
+            this.DecimalButton.Click += new System.EventHandler(this.numberBtnClick);
             // 
             // menuStrip1
             // 
