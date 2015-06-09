@@ -50,6 +50,7 @@ namespace Calculator.Calculator
         public void Initialize()
         {
             opFactory.InitializeOperators();
+            OnUpdated();
         }
 
         /// <summary>
