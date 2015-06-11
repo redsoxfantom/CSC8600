@@ -116,7 +116,7 @@ namespace Calculator.Calculator
         /// </summary>
         private void OnTransitionError(Exception ex)
         {
-            mLogger.Error(string.Format("Calculator server caught error [{0}]. Calculator state will be reset"));
+            mLogger.Error(string.Format("Calculator server caught error [{0}]. Calculator state will be reset",ex.Message));
             mState = new InitialState();
             OnUpdated();
         }
