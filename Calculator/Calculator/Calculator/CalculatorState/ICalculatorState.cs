@@ -33,6 +33,18 @@ namespace Calculator.Calculator.CalculatorState
         ICalculatorState EqualsTransition();
 
         /// <summary>
+        /// Called when the user presses memstore
+        /// </summary>
+        /// <returns>The memstore state</returns>
+        ICalculatorState MemAddTransition();
+
+        /// <summary>
+        /// Called when the user presses MemRecall
+        /// </summary>
+        /// <returns>the memrecall state</returns>
+        ICalculatorState MemRecallTransition();
+
+        /// <summary>
         /// Get the current number the user has entered
         /// </summary>
         /// <returns>The number this state is operating on</returns>

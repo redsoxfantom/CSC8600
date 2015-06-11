@@ -80,5 +80,23 @@ namespace Calculator.Calculator.CalculatorState
         /// </summary>
         /// <returns>The number this state is operating on</returns>
         public abstract string GetCurrentNumber();
+
+        /// <summary>
+        /// Called when the user presses memstore
+        /// </summary>
+        /// <returns>The memstore state</returns>
+        public ICalculatorState MemAddTransition()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Called when the user presses MemRecall
+        /// </summary>
+        /// <returns>the memrecall state</returns>
+        public ICalculatorState MemRecallTransition()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
