@@ -28,6 +28,8 @@ namespace Calculator.Calculator.CalculatorState
             // Just store the operator off for now. Don't enqueue the operator until we transition to another state
             // This is done in case the user enters multiple operators, we only want to save the last one
             mOp = op;
+
+            mLogger.Info(string.Format("In Operator State, initial operand was {0}", op.GetType().Name));
         }
 
         /// <summary>
@@ -42,11 +44,12 @@ namespace Calculator.Calculator.CalculatorState
 
             try
             {
+                mLogger.Info(string.Format("Attempting to transition from Operator State to Operand State with operand {0}", op));
                 return new OperandState(OperandList, OperatorList, op);
             }
             catch(Exception ex)
             {
-                Console.WriteLine(string.Format("Failed to transition from OperatorState to OperandState: {0}", ex.Message));
+                mLogger.Error(string.Format("Failed to transition from OperatorState to OperandState: {0}", ex.Message));
                 OperatorList.Remove(mOp);
                 return this;
             }
@@ -59,6 +62,7 @@ namespace Calculator.Calculator.CalculatorState
         /// <returns>The state the state transitions to</returns>
         public override ICalculatorState OperatorTransition(INaryOperator op)
         {
+            mLogger.Info(string.Format("Attempting to transition from Operator State to Operator State with operand {0}", op.GetType().Name));
             // clear out the old operator by constructing a new one
             return new OperatorState(OperandList, OperatorList, op);
         }
@@ -74,11 +78,12 @@ namespace Calculator.Calculator.CalculatorState
 
             try
             {
+                mLogger.Info("Attempting to transition from Operator State to Equals State");
                 return new EqualsState(OperandList, OperatorList);
             }
             catch(Exception ex)
             {
-                Console.WriteLine(string.Format("Failed to transition from OperatorState to EqualsState: {0}", ex.Message));
+                mLogger.Error(string.Format("Failed to transition from OperatorState to EqualsState: {0}", ex.Message));
                 OperatorList.Remove(mOp);
                 return this;
             }
