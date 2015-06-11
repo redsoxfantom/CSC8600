@@ -51,6 +51,7 @@
     <Compile Include="Calculator\CalculatorState\EqualsState.cs" />
     <Compile Include="Calculator\CalculatorState\ICalculatorState.cs" />
     <Compile Include="Calculator\CalculatorState\InitialState.cs" />
+    <Compile Include="Calculator\CalculatorState\MemStoreState.cs" />
     <Compile Include="Calculator\CalculatorState\OperandState.cs" />
     <Compile Include="Calculator\CalculatorState\OperatorState.cs" />
     <Compile Include="Calculator\ICalculatorServer.cs" />
