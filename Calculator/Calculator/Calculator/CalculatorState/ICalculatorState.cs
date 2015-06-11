@@ -36,7 +36,7 @@ namespace Calculator.Calculator.CalculatorState
         /// Called when the user presses memstore
         /// </summary>
         /// <returns>The memstore state</returns>
-        ICalculatorState MemAddTransition();
+        ICalculatorState MemStoreTransition(string valueToStore);
 
         /// <summary>
         /// Called when the user presses MemRecall
