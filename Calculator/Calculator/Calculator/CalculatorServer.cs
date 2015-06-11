@@ -66,7 +66,14 @@ namespace Calculator.Calculator
         /// <param name="number">The number the user entered</param>
         public void AcceptNumber(string number)
         {
-            mState = mState.OperandTransition(number);
+            try
+            {
+                mState = mState.OperandTransition(number);
+            }
+            catch(Exception ex)
+            {
+                OnTransitionError(ex);
+            }
             OnUpdated();
         }
 
@@ -77,7 +84,14 @@ namespace Calculator.Calculator
         public void AcceptOperator(string op)
         {
             INaryOperator newOp = opFactory.GetOperator(op);
-            mState = mState.OperatorTransition(newOp);
+            try
+            {
+                mState = mState.OperatorTransition(newOp);
+            }
+            catch(Exception ex)
+            {
+                OnTransitionError(ex);
+            }
             OnUpdated();
         }
 
@@ -86,16 +100,25 @@ namespace Calculator.Calculator
         /// </summary>
         public void AcceptEquals()
         {
-            mState = mState.EqualsTransition();
+            try
+            {
+                mState = mState.EqualsTransition();
+            }
+            catch (Exception ex)
+            {
+                OnTransitionError(ex);
+            }
             OnUpdated();
         }
 
         /// <summary>
         /// Called when a state transition throws an uncaught error
         /// </summary>
-        private void OnTransitionError()
+        private void OnTransitionError(Exception ex)
         {
-            
+            mLogger.Error(string.Format("Calculator server caught error [{0}]. Calculator state will be reset"));
+            mState = new InitialState();
+            OnUpdated();
         }
 
         /// <summary>
