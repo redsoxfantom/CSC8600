@@ -87,7 +87,7 @@ namespace Calculator.Calculator.CalculatorState
         /// <returns>The memstore state</returns>
         public ICalculatorState MemStoreTransition(string valueToStore)
         {
-            throw new NotImplementedException();
+            return new MemStoreState(OperandList, OperatorList, valueToStore);
         }
 
         /// <summary>

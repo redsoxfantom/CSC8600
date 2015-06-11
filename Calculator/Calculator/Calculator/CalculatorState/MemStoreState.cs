@@ -20,6 +20,7 @@ namespace Calculator.Calculator.CalculatorState
         /// <param name="valueToStore">The value to store in memory</param>
         public MemStoreState(List<double> operandList, List<INaryOperator> operatorList, string valueToStore) : base (operandList,operatorList)
         {
+            mLogger.Info(string.Format("In MemStoreState with valueToStore: {0}", valueToStore));
             CalculatorMemory.StoredValue = valueToStore;
         }
 
