@@ -57,7 +57,7 @@ namespace Calculator.MathOperators.BinaryOperators
         /// ToString method
         /// </summary>
         /// <returns>The operator's symbol</returns>
-        public abstract string ToString();
+        public abstract override string ToString();
 
         /// <summary>
         /// Perform the actual function of the operator
