@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Calculator.MathOperators;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,17 @@ namespace Calculator.Calculator.CalculatorState
     /// </summary>
     public class MemStoreState : BaseCalculatorState
     {
+        /// <summary>
+        /// The constructor
+        /// </summary>
+        /// <param name="operandList">operand list</param>
+        /// <param name="operatorList">operator list</param>
+        /// <param name="valueToStore">The value to store in memory</param>
+        public MemStoreState(List<double> operandList, List<INaryOperator> operatorList, string valueToStore) : base (operandList,operatorList)
+        {
+            CalculatorMemory.StoredValue = valueToStore;
+        }
+
         /// <summary>
         /// Called when the user enters a number / decimal point
         /// </summary>
@@ -46,7 +58,7 @@ namespace Calculator.Calculator.CalculatorState
         /// <returns>The number this state is operating on</returns>
         public override string GetCurrentNumber()
         {
-            throw new NotImplementedException();
+            return CalculatorMemory.StoredValue;
         }
     }
 }
