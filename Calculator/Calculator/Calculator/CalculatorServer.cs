@@ -1,4 +1,5 @@
 ﻿using Calculator.Calculator.CalculatorState;
+using Calculator.Logger;
 using Calculator.MathOperators;
 using Calculator.MathOperators.MathOperatorsFactory;
 using System;
@@ -36,12 +37,18 @@ namespace Calculator.Calculator
         public event NumberUpdated Updated;
 
         /// <summary>
+        /// Logger for the server
+        /// </summary>
+        private ILogger mLogger;
+
+        /// <summary>
         /// The constructor
         /// </summary>
         public CalculatorServer()
         {
             opFactory = new MathOperatorsFactory();
             mState = new InitialState();
+            mLogger = LoggerFactory.CreateLogger(this.GetType().Name);
         }
 
         /// <summary>
@@ -81,6 +88,14 @@ namespace Calculator.Calculator
         {
             mState = mState.EqualsTransition();
             OnUpdated();
+        }
+
+        /// <summary>
+        /// Called when a state transition throws an uncaught error
+        /// </summary>
+        private void OnTransitionError()
+        {
+            
         }
 
         /// <summary>
