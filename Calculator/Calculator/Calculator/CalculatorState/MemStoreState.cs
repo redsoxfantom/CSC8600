@@ -31,7 +31,17 @@ namespace Calculator.Calculator.CalculatorState
         /// <returns>The state this state transitions to</returns>
         public override ICalculatorState OperandTransition(string op)
         {
-            throw new NotImplementedException();
+            string newOperand = CalculatorMemory.StoredValue + op;
+            try
+            {
+                mLogger.Info(string.Format("Attempting to transition from MemStoreState to OperandState with op [{0}]",newOperand));
+                return new OperandState(OperandList, OperatorList, newOperand);
+            }
+            catch(Exception ex)
+            {
+                mLogger.Error(string.Format("Failed to transition to OperandState: {0}", ex.Message));
+                return this;
+            }
         }
 
         /// <summary>
