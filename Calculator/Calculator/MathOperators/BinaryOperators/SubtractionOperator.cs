@@ -23,5 +23,14 @@ namespace Calculator.MathOperators.BinaryOperators
 
             return result;
         }
+
+        /// <summary>
+        /// ToString method
+        /// </summary>
+        /// <returns>-</returns>
+        public override string ToString()
+        {
+            return "-";
+        }
     }
 }

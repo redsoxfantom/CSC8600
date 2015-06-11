@@ -23,5 +23,11 @@ namespace Calculator.MathOperators
         /// </summary>
         /// <returns>The number of operands expected</returns>
         int NumOperandsExpected();
+
+        /// <summary>
+        /// ToString method
+        /// </summary>
+        /// <returns>The operator's symbol</returns>
+        string ToString();
     }
 }

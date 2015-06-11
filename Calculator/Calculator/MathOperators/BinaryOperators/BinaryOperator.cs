@@ -54,6 +54,12 @@ namespace Calculator.MathOperators.BinaryOperators
         }
 
         /// <summary>
+        /// ToString method
+        /// </summary>
+        /// <returns>The operator's symbol</returns>
+        public abstract string ToString();
+
+        /// <summary>
         /// Perform the actual function of the operator
         /// </summary>
         /// <param name="operand1">The first operand</param>
