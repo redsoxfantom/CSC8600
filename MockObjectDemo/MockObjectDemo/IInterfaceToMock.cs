@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace MockObjectDemo
 {
-    public class Class1
+    public interface IInterfaceToMock
     {
+        int PerformExpensiveDatabaseLookup(int index);
     }
 }
