@@ -10,7 +10,26 @@ namespace MockObjectDemo
     {
         public int Search(int indexToSearchFor, IInterfaceToMock databaseInterface)
         {
-            return databaseInterface.PerformExpensiveDatabaseLookup(indexToSearchFor);
+            int returnedValue;
+
+            try
+            {
+                returnedValue = databaseInterface.PerformExpensiveDatabaseLookup(indexToSearchFor);
+            }
+            catch(Exception)
+            {
+                return -1;
+            }
+
+            if(returnedValue < 0)
+            {
+                return 0;
+            }
+            if(returnedValue > 100)
+            {
+                return 100;
+            }
+            return returnedValue;
         }
     }
 }
