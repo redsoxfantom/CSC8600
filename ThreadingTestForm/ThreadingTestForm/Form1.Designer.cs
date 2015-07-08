@@ -43,28 +43,30 @@
             // NonThreadedButton
             // 
             this.NonThreadedButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NonThreadedButton.Location = new System.Drawing.Point(99, 12);
+            this.NonThreadedButton.Location = new System.Drawing.Point(93, 12);
             this.NonThreadedButton.Name = "NonThreadedButton";
             this.NonThreadedButton.Size = new System.Drawing.Size(180, 49);
             this.NonThreadedButton.TabIndex = 0;
             this.NonThreadedButton.Text = "Start NonThreaded Task";
             this.NonThreadedButton.UseVisualStyleBackColor = true;
+            this.NonThreadedButton.Click += new System.EventHandler(this.NonThreadedButton_Click);
             // 
             // ThreadedButton
             // 
             this.ThreadedButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ThreadedButton.Location = new System.Drawing.Point(99, 128);
+            this.ThreadedButton.Location = new System.Drawing.Point(93, 128);
             this.ThreadedButton.Name = "ThreadedButton";
             this.ThreadedButton.Size = new System.Drawing.Size(180, 49);
             this.ThreadedButton.TabIndex = 1;
             this.ThreadedButton.Text = "Start Threaded Task";
             this.ThreadedButton.UseVisualStyleBackColor = true;
+            this.ThreadedButton.Click += new System.EventHandler(this.ThreadedButton_Click);
             // 
             // NonThreadedOutput
             // 
             this.NonThreadedOutput.AutoSize = true;
             this.NonThreadedOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NonThreadedOutput.Location = new System.Drawing.Point(86, 64);
+            this.NonThreadedOutput.Location = new System.Drawing.Point(80, 64);
             this.NonThreadedOutput.Name = "NonThreadedOutput";
             this.NonThreadedOutput.Size = new System.Drawing.Size(205, 17);
             this.NonThreadedOutput.TabIndex = 2;
@@ -74,7 +76,7 @@
             // 
             this.ThreadedOutput.AutoSize = true;
             this.ThreadedOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ThreadedOutput.Location = new System.Drawing.Point(86, 180);
+            this.ThreadedOutput.Location = new System.Drawing.Point(80, 180);
             this.ThreadedOutput.Name = "ThreadedOutput";
             this.ThreadedOutput.Size = new System.Drawing.Size(205, 17);
             this.ThreadedOutput.TabIndex = 3;
