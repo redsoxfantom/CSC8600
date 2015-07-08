@@ -28,13 +28,19 @@ namespace ThreadingTestForm
         private void ThreadedButton_Click(object sender, EventArgs e)
         {
             ThreadedOutput.Text = "RUNNING";
-            ThreadStart job = new ThreadStart(() =>
-            {
-                Thread.Sleep(5000);
-                ThreadedOutput.Text = "COMPLETE";
-            });
-            Thread thread = new Thread(job);
-            thread.Start();
+            backgroundWorker1.DoWork += backgroundWorker1_DoWork;
+            backgroundWorker1.RunWorkerAsync();
+            backgroundWorker1.RunWorkerCompleted += backgroundWorker1_RunWorkerCompleted;
+        }
+
+        void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            ThreadedOutput.Text = "COMPLETE";
+        }
+
+        void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Thread.Sleep(5000);
         }
     }
 }
