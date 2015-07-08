@@ -29,8 +29,8 @@ namespace ThreadingTestForm
         {
             ThreadedOutput.Text = "RUNNING";
             backgroundWorker1.DoWork += backgroundWorker1_DoWork;
-            backgroundWorker1.RunWorkerAsync();
             backgroundWorker1.RunWorkerCompleted += backgroundWorker1_RunWorkerCompleted;
+            backgroundWorker1.RunWorkerAsync();
         }
 
         void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
