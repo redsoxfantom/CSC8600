@@ -13,5 +13,12 @@
 #include <stdio.h>
 
 
+DWORD WINAPI ThreadFunction(LPVOID params);
+void ParallelForLoop(int numIters);
+
+typedef struct tData
+{
+	int val;
+} myTData, *pTData;
 
 // TODO: reference additional headers your program requires here

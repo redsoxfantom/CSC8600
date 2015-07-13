@@ -32,5 +32,8 @@
     <ClCompile Include="C++Threading.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ForLoop.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
