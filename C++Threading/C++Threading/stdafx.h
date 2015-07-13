@@ -15,6 +15,7 @@
 
 DWORD WINAPI ThreadFunction(LPVOID params);
 void ParallelForLoop(int numIters);
+void BasicThread();
 
 typedef struct tData
 {

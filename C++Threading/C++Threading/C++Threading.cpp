@@ -5,24 +5,20 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	pTData data = (pTData)HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(myTData));
-	data->val = 100;
+	printf("Enter example function to run:\n");
+	printf("1) Basic Thread\n");
+	printf("2) For Loop Threading\n");
+	char in = getc(stdin);
 
-	HANDLE myThread = CreateThread(NULL, 0, ThreadFunction, data, 0, NULL);
-	WaitForSingleObject(myThread,INFINITE);
+	if (in == '1')
+	{
+		BasicThread();
+	}
+	else
+	{
+		ParallelForLoop(100);
+	}
 
-	printf("Main Thread Running\n");
-
-	ParallelForLoop(100);
-
-	getc(stdin);
-	return 0;
-}
-
-DWORD WINAPI ThreadFunction(LPVOID params)
-{
-	pTData data = (pTData)params;
-	printf("Child Thread Called With Params: %d\n",data->val);
-
+	system("PAUSE");
 	return 0;
 }

@@ -83,6 +83,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BasicThread.cpp" />
     <ClCompile Include="C++Threading.cpp" />
     <ClCompile Include="ForLoop.cpp" />
     <ClCompile Include="stdafx.cpp" />
