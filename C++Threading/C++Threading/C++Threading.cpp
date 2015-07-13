@@ -67,8 +67,7 @@ void ParallelForLoop(int numIters)
 	HANDLE *ThreadArray = (HANDLE*)HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(HANDLE)*numProc);
 	for (DWORD i = 0; i < numProc; i++)
 	{
-		// Allocate space for the thread and it's parameter
-		HANDLE currThread = *(ThreadArray + i);
+		// Allocate space for the thread parameter
 		pTData data = (pTData)HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(myTData));
 		if (i == numProc - 1)
 		{
@@ -80,7 +79,7 @@ void ParallelForLoop(int numIters)
 		}
 
 		// Create and run the thread
-		currThread = CreateThread(NULL, 0, ForThreadFunction, data, 0, NULL);
+		*(ThreadArray + i) = CreateThread(NULL, 0, ForThreadFunction, data, 0, NULL);
 	}
 
 	// Wait for all the child threads to complete
