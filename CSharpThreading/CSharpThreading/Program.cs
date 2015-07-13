@@ -10,6 +10,9 @@ namespace CSharpThreading
     {
         static void Main(string[] args)
         {
+            BasicThreading b = new BasicThreading();
+
+            Console.ReadLine();
         }
     }
 }
