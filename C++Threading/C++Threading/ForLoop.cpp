@@ -7,6 +7,7 @@ DWORD WINAPI ForThreadFunction(LPVOID params)
 	for (int i = 0; i < iterationData->val; i++)
 	{
 		printf("Thread %d running iteration %d\n", threadId, i);
+		Sleep(10);
 	}
 
 	return 0;
