@@ -21,12 +21,18 @@ namespace CSharpThreading
 
         void Produce()
         {
-            
+            while(true)
+            {
+
+            }
         }
 
         void Consume()
         {
+            while(true)
+            {
 
+            }
         }
     }
 }

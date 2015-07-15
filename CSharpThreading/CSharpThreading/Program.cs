@@ -13,6 +13,7 @@ namespace CSharpThreading
             Console.WriteLine("Select an example program:");
             Console.WriteLine("1) Basic example");
             Console.WriteLine("2) For loop example");
+            Console.WriteLine("3) Producer Consumer example");
             String input = Console.ReadLine();
 
             if (input == "1")
@@ -22,6 +23,11 @@ namespace CSharpThreading
             if (input == "2")
             {
                 ForLoopThreading f = new ForLoopThreading(100);
+            }
+            if(input == "3")
+            {
+                ProducerConsumer p = new ProducerConsumer();
+                p.Run();
             }
             Console.ReadLine();
         }
