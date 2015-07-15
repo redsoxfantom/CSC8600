@@ -24,15 +24,19 @@ namespace CSharpThreading
         void Produce()
         {
             Random gen = new Random();
-            while(true)
+            while(!CancelToken.IsCancellationRequested)
             {
-                
+                Thread.Sleep(gen.Next(20));
+                int valToEnqueue = gen.Next();
+                Console.WriteLine("Producer Enqueing Value: " + valToEnqueue);
+                WorkItemQueue.Enqueue(valToEnqueue);
             }
+            Console.WriteLine("Producer Cancelled");
         }
 
         void Consume()
         {
-            while(true)
+            while (!CancelToken.IsCancellationRequested)
             {
 
             }
