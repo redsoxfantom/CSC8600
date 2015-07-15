@@ -11,19 +11,22 @@ namespace CSharpThreading
     public class ProducerConsumer
     {
         private ConcurrentQueue<int> WorkItemQueue = new ConcurrentQueue<int>();
-        public CancellationToken CancelToken = new CancellationToken();
+        private CancellationToken CancelToken;
+        public CancellationTokenSource CancelTokenSource = new CancellationTokenSource();
 
         public void Run()
         {
+            CancelToken = CancelTokenSource.Token;
             Task.Factory.StartNew(new Action(() => { Produce(); }), CancelToken);
             Task.Factory.StartNew(new Action(() => { Consume(); }), CancelToken);
         }
 
         void Produce()
         {
+            Random gen = new Random();
             while(true)
             {
-
+                
             }
         }
 

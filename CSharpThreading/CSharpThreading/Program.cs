@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CSharpThreading
@@ -28,6 +29,8 @@ namespace CSharpThreading
             {
                 ProducerConsumer p = new ProducerConsumer();
                 p.Run();
+                Thread.Sleep(2500);
+                p.CancelTokenSource.Cancel();
             }
             Console.ReadLine();
         }
