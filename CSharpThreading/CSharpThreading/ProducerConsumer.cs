@@ -36,10 +36,15 @@ namespace CSharpThreading
 
         void Consume()
         {
+            Random gen = new Random();
             while (!CancelToken.IsCancellationRequested)
             {
-
+                Thread.Sleep(gen.Next(100));
+                int dequeueVal;
+                WorkItemQueue.TryDequeue(out dequeueVal);
+                Console.WriteLine("Consumer Dequeued Value: " + dequeueVal);
             }
+            Console.WriteLine("Consumer Cancelled");
         }
     }
 }
