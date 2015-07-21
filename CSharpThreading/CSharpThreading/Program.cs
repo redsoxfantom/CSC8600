@@ -16,6 +16,7 @@ namespace CSharpThreading
             Console.WriteLine("2) For loop example");
             Console.WriteLine("3) Producer Consumer example");
             Console.WriteLine("4) Simple Aggregator");
+            Console.WriteLine("5) Producer Consumer With Streaming example");
             String input = Console.ReadLine();
 
             if (input == "1")
@@ -36,6 +37,13 @@ namespace CSharpThreading
             if(input == "4")
             {
                 SimpleAggregation a = new SimpleAggregation();
+            }
+            if (input == "5")
+            {
+                ProducerConsumerWithStreaming p = new ProducerConsumerWithStreaming();
+                p.Run();
+                Thread.Sleep(2500);
+                p.CancelTokenSource.Cancel();
             }
             Console.ReadLine();
         }

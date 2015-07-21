@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BasicThreading.cs" />
     <Compile Include="ForLoopThreading.cs" />
+    <Compile Include="ProducerConsumerWithStreaming.cs" />
     <Compile Include="ProducerConsumer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
