@@ -17,6 +17,7 @@ namespace CSharpThreading
             Console.WriteLine("3) Producer Consumer example");
             Console.WriteLine("4) Simple Aggregator");
             Console.WriteLine("5) Producer Consumer With Streaming example");
+            Console.WriteLine("6) Speculative Execution example");
             String input = Console.ReadLine();
 
             if (input == "1")
@@ -44,6 +45,10 @@ namespace CSharpThreading
                 p.Run();
                 Thread.Sleep(2500);
                 p.CancelTokenSource.Cancel();
+            }
+            if(input == "6")
+            {
+                SpeculativeProcessing s = new SpeculativeProcessing();
             }
             Console.ReadLine();
         }
