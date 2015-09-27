@@ -43,5 +43,10 @@ namespace IteratorExample
         {
             return (currentIndex == backingArray.Length);
         }
+
+        public void Reset()
+        {
+            currentIndex = 0;
+        }
     }
 }

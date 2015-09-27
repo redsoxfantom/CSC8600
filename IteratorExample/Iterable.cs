@@ -28,7 +28,12 @@ namespace IteratorExample
         /// <summary>
         /// Checks if the Iteration is at the end of the collection
         /// </summary>
-        /// <returns>True if GetCurrent() returns the last element in the collection</returns>
+        /// <returns>True if GetCurrent() would go past the bounds of the backing collection</returns>
         bool AtEnd();
+
+        /// <summary>
+        /// Returns the iteration to the starting element
+        /// </summary>
+        Reset();
     }
 }
