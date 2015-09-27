@@ -28,6 +28,7 @@ namespace IteratorExample
                 Console.WriteLine(itr.GetCurrent());
                 itr.Advance();
             }
+            itr.Reset();
         }
     }
 }
