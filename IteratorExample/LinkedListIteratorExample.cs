@@ -59,7 +59,7 @@ namespace IteratorExample
         }
     }
 
-    private class ListNode
+    class ListNode
     {
         public int data;
         public ListNode next = null;

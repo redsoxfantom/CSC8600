@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ArrayIteratorExample.cs" />
     <Compile Include="Iterable.cs" />
+    <Compile Include="LinkedListIteratorExample.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

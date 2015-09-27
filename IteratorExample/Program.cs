@@ -12,8 +12,12 @@ namespace IteratorExample
         {
             ArrayIteratorExample ex = new ArrayIteratorExample(10);
             PrintIterable<int>(ex);
-
             Console.ReadLine();
+
+            LinkedListIteratorExample ex2 = new LinkedListIteratorExample(10);
+            PrintIterable<int>(ex2);
+            Console.ReadLine();
+
         }
 
         public static void PrintIterable<T>(Iterable<T> itr)
