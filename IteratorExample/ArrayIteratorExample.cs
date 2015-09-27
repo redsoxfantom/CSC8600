@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IteratorExample
 {
-    public class ArrayIteratorExample<int> : Iterable<int>
+    public class ArrayIteratorExample : Iterable<int>
     {
         private int[] backingArray;
 

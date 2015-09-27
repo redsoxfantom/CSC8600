@@ -10,6 +10,7 @@ namespace IteratorExample
     {
         static void Main(string[] args)
         {
+            ArrayIteratorExample ex = new ArrayIteratorExample(10);
         }
     }
 }

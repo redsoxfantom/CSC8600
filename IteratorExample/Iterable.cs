@@ -34,6 +34,6 @@ namespace IteratorExample
         /// <summary>
         /// Returns the iteration to the starting element
         /// </summary>
-        Reset();
+        void Reset();
     }
 }
