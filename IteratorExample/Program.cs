@@ -11,6 +11,19 @@ namespace IteratorExample
         static void Main(string[] args)
         {
             ArrayIteratorExample ex = new ArrayIteratorExample(10);
+            PrintIterable<int>(ex);
+
+            Console.ReadLine();
+        }
+
+        public static void PrintIterable<T>(Iterable<T> itr)
+        {
+            Console.WriteLine("Iterating through " + itr.GetType().Name + " object");
+            while(!itr.AtEnd())
+            {
+                Console.WriteLine(itr.GetCurrent());
+                itr.Advance();
+            }
         }
     }
 }
